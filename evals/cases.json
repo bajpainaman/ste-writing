@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "skill": "ste-writing",
+  "cases": [
+    {
+      "id": "rewrite-readme-flavored",
+      "mode": "rewrite",
+      "strictness": "flavored",
+      "prompt": "Make this README paragraph not sound like AI.",
+      "input": "It is important to note that our robust platform seamlessly leverages worker pools to facilitate scalable processing.",
+      "must_preserve": ["worker pools"],
+      "must_remove": ["It is important to note", "robust", "seamlessly", "leverages", "facilitate", "scalable"],
+      "must_not_add": ["a throughput number", "a latency claim"]
+    },
+    {
+      "id": "strict-procedure",
+      "mode": "rewrite",
+      "strictness": "strict",
+      "prompt": "Rewrite this runbook step in strict mode.",
+      "input": "You should use the admin tool to perform a restart of the API and then check the logs.",
+      "acceptance": [
+        "Uses numbered steps",
+        "Each step starts with an imperative verb",
+        "One instruction per step",
+        "Each sentence has at most 20 words"
+      ],
+      "must_preserve": ["admin tool", "API", "restart before log check"]
+    },
+    {
+      "id": "literal-integrity",
+      "mode": "rewrite",
+      "strictness": "flavored",
+      "prompt": "De-slopify the prose but keep commands exact.",
+      "input": "You can leverage `cargo test --locked` in order to robustly validate commit a1b2c3.",
+      "must_preserve_exact": ["`cargo test --locked`", "a1b2c3"],
+      "must_remove": ["leverage", "in order to", "robustly"]
+    },
+    {
+      "id": "modality-lock",
+      "mode": "rewrite",
+      "strictness": "flavored",
+      "prompt": "Make this clearer.",
+      "input": "Operators should rotate the key after the light turns green.",
+      "must_preserve": ["advisory force of should", "condition before action"],
+      "must_not_add": ["must"]
+    },
+    {
+      "id": "ambiguous-safety",
+      "mode": "rewrite",
+      "strictness": "strict",
+      "prompt": "Rewrite this as a safety instruction.",
+      "input": "Be careful when you disconnect the cable.",
+      "expected_behavior": "Ask what harm can occur and whether the risk is personal injury/death or object damage. Do not invent a WARNING or CAUTION."
+    },
+    {
+      "id": "audit-only",
+      "mode": "audit",
+      "strictness": "strict",
+      "prompt": "Audit this procedure. Do not rewrite it.",
+      "input": "Restart the service; then check the log and clear the queue.",
+      "expected_findings": ["semicolon", "more than one instruction"],
+      "must_not_return": ["a replacement procedure presented as the final text"]
+    },
+    {
+      "id": "code-fence-boundary",
+      "mode": "rewrite",
+      "strictness": "flavored",
+      "prompt": "Rewrite the prose in this document.",
+      "input": "This robust command starts the app:\n\n```bash\nnpm run start -- --robust\n```",
+      "must_preserve_exact": ["```bash\nnpm run start -- --robust\n```"],
+      "must_remove": ["robust command"]
+    },
+    {
+      "id": "voice-driven-stop",
+      "mode": "rewrite",
+      "strictness": "unknown",
+      "prompt": "Use STE on this brand manifesto.",
+      "input": "We build software with a restless, human pulse.",
+      "expected_behavior": "Explain that STE removes voice and ask whether to use strict controlled English or only the anti-slop overlay."
+    },
+    {
+      "id": "output-contract",
+      "mode": "rewrite",
+      "strictness": "flavored",
+      "prompt": "Rewrite this and give me only the new sentence.",
+      "input": "In conclusion, this innovative workflow facilitates collaboration.",
+      "must_not_return": ["preamble", "summary", "change log", "closing remark"]
+    },
+    {
+      "id": "terminology-stability",
+      "mode": "rewrite",
+      "strictness": "flavored",
+      "prompt": "Make this technical description clearer.",
+      "input": "The worker reads the job. The processor validates the task. The executor then stores the work item.",
+      "expected_behavior": "Do not merge worker, processor, executor, job, task, and work item unless the source confirms they identify the same things."
+    }
+  ]
+}

@@ -6,15 +6,26 @@ Use it to de-slopify AI-sounding prose, simplify jargon, tighten procedures and 
 
 ## Install
 
+### As a plugin (recommended)
+
+This repo is its own plugin marketplace. In Claude Code:
+
+```shell
+/plugin marketplace add bajpainaman/ste-writing
+/plugin install ste-writing@naman-plugins
+```
+
+Then invoke the skill with `/ste-writing:ste-writing`, or just ask things like "de-slopify this", "make this not sound like AI", or "audit this prose".
+
+### As a standalone skill
+
 Clone into your Claude Code skills directory:
 
 ```bash
 git clone https://github.com/bajpainaman/ste-writing.git ~/.claude/skills/ste-writing
 ```
 
-Then invoke it in Claude Code with `/ste-writing`, or just ask things like "de-slopify this", "make this not sound like AI", or "audit this prose".
-
-Works from `~/.codex/skills/ste-writing` too — the skill preamble checks both locations.
+Then invoke it with `/ste-writing`. Works from `~/.codex/skills/ste-writing` too — the skill preamble checks both locations.
 
 ## What's inside
 

@@ -34,14 +34,21 @@ allowed-tools:
 ```bash
 _STE_SKILL_DIR=""
 for candidate in \
+  "${CLAUDE_PLUGIN_ROOT:-}" \
   "$HOME/.claude/skills/ste-writing" \
   "$HOME/.codex/skills/ste-writing"
 do
-  if [ -f "$candidate/SKILL.md" ]; then
+  if [ -n "$candidate" ] && [ -f "$candidate/SKILL.md" ]; then
     _STE_SKILL_DIR="$candidate"
     break
   fi
 done
+if [ -z "$_STE_SKILL_DIR" ]; then
+  _STE_SKILL_DIR=$(
+    find "$HOME/.claude/plugins" -maxdepth 6 -type f -name SKILL.md \
+      -path "*ste-writing*" 2>/dev/null | head -1 | xargs -r dirname
+  )
+fi
 [ -n "$_STE_SKILL_DIR" ] || { echo "STE_SKILL_NOT_FOUND"; exit 1; }
 _STE_LINT="$_STE_SKILL_DIR/scripts/ste_lint.py"
 [ -f "$_STE_LINT" ] || { echo "STE_LINT_NOT_FOUND"; exit 1; }

@@ -1,2 +1,5 @@
 __pycache__/
 *.pyc
+/vale/private/
+/vale/styles/STE100Dictionary/
+/vale/styles/config/scripts/Dictionary*.tengo

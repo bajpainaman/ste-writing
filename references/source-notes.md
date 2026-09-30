@@ -22,6 +22,18 @@ Optional source files on the authoring Mac:
 The skill does not require these files. A Linux installation uses the condensed
 rules and references in the skill package.
 
+The full book received through Taildrop on 2026-09-29 is available locally,
+relative to this repository:
+
+- Markdown: `vale/private/ASD-STE100_ISSUE9.md`
+- Original archive: `vale/private/ASD-STE100_ISSUE9.zip`
+- Extracted dictionary and restrictions: `vale/private/dictionary.json`
+
+These files are Git-ignored. The Markdown matches the archive member byte for
+byte. [The Vale package](../vale/README.md) documents the extraction audit and
+its unresolved count discrepancy. [The coverage map](../vale/coverage.md)
+records all 53 rules, their source locations, and remaining contextual review.
+
 The OCR result contains 434 unique page indexes, no empty OCR pages, 7 extracted
 figures, and 4,508 Markdown table rows.
 
@@ -60,9 +72,11 @@ Useful regions:
 
 ## Scope and rights
 
-The generated skill contains condensed study notes and original application
-guidance. It does not contain the full standard or dictionary. Keep the skill
-private unless the rights holder permits distribution.
+The public package contains condensed study notes, original application
+guidance, and linter code. It excludes the full standard, source archive,
+extracted dictionary, and generated full-dictionary scripts. Keep those source
+materials in the Git-ignored `vale/private/` directory; the code's MIT license
+does not grant rights to redistribute the standard.
 
 Use the official document for regulated work. Do not present OCR or these notes as
 an official edition.

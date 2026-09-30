@@ -6,15 +6,15 @@
   },
   "metadata": {
     "description": "Naman's Claude Code plugins",
-    "version": "1.0.0"
+    "version": "1.1.0"
   },
   "plugins": [
     {
       "name": "ste-writing",
       "source": "./",
-      "description": "ASD-STE100 (Simplified Technical English) writing skill — rewrite, author, audit, and lint technical prose, with a dependency-free advisory linter.",
+      "description": "Rewrite, author, audit, and lint technical English with ASD-STE100 Issue 9 guidance, Vale profiles, and an advisory AI-prose checker.",
       "category": "writing",
-      "keywords": ["writing", "documentation", "ste", "asd-ste100", "prose", "linter", "de-slop"]
+      "keywords": ["writing", "documentation", "ste", "asd-ste100", "english", "prose", "vale", "linter", "de-slop"]
     }
   ]
 }

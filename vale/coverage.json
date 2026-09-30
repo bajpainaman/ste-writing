@@ -1,0 +1,672 @@
+{
+  "standard": "ASD-STE100",
+  "issue": 9,
+  "writing_rules": 53,
+  "source": "references/rules.md (condensed summaries)",
+  "dictionary": {
+    "complete": false,
+    "counts": {
+      "approved": 879,
+      "nonapproved": 1319
+    },
+    "curated_review_terms": 22,
+    "all_headwords_parsed": true,
+    "counts_match_expected": false,
+    "expected_counts": {
+      "approved": 875,
+      "nonapproved": 1274
+    },
+    "lexical_checks": {
+      "nonapproved_patterns": 1185,
+      "approved_forms": 1502,
+      "contextual_entries": [
+        "prevent (from)",
+        "re-"
+      ]
+    },
+    "source_sha256": "5b68aa3807efbc10bdc1a8e9462947e3f05d3f4f48639426e2b7cd365205bdd9"
+  },
+  "rules": [
+    {
+      "id": "1.1",
+      "summary": "Use dictionary-approved words, technical nouns, or technical verbs.",
+      "status": "partial",
+      "checks": [
+        "STE100.WordReview_acceptable",
+        "STE100.WordReview_alternate",
+        "STE100.WordReview_avoid",
+        "STE100.WordReview_both",
+        "STE100.WordReview_ensure",
+        "STE100.WordReview_fit",
+        "STE100.WordReview_follow",
+        "STE100.WordReview_further",
+        "STE100.WordReview_however",
+        "STE100.WordReview_insert",
+        "STE100.WordReview_main",
+        "STE100.WordReview_may",
+        "STE100.WordReview_now",
+        "STE100.WordReview_perform",
+        "STE100.WordReview_portion",
+        "STE100.WordReview_press",
+        "STE100.WordReview_repeat",
+        "STE100.WordReview_shall",
+        "STE100.WordReview_should",
+        "STE100.WordReview_since",
+        "STE100.WordReview_therefore",
+        "STE100.WordReview_using",
+        "STE100Dictionary.DictionaryWords",
+        "STE100Dictionary.DictionaryVocabulary"
+      ],
+      "limits": [
+        "Uses the skill's curated review map. Alternatives depend on meaning; this is not the full dictionary.",
+        "All extracted non-approved entries are retained. Ambiguous POS, contextual constructions, meanings, and technical-term status require review.",
+        "Checks approved headwords and listed verb/adjective forms, with approximate noun plurals. This lexical check cannot determine POS, meaning, irregular noun forms, or whether an unknown technical term is valid."
+      ],
+      "book_source_line": 1894
+    },
+    {
+      "id": "1.2",
+      "summary": "Use an approved word only as its specified part of speech.",
+      "status": "review",
+      "checks": [],
+      "limits": [
+        "Requires review of meaning, grammar, terminology, or document structure."
+      ],
+      "book_source_line": 1917
+    },
+    {
+      "id": "1.3",
+      "summary": "Use an approved word only with its approved meaning.",
+      "status": "review",
+      "checks": [],
+      "limits": [
+        "Requires review of meaning, grammar, terminology, or document structure."
+      ],
+      "book_source_line": 1996
+    },
+    {
+      "id": "1.4",
+      "summary": "Use only approved verb and adjective forms.",
+      "status": "partial",
+      "checks": [
+        "STE100Dictionary.DictionaryVocabulary"
+      ],
+      "limits": [
+        "Checks approved headwords and listed verb/adjective forms, with approximate noun plurals. This lexical check cannot determine POS, meaning, irregular noun forms, or whether an unknown technical term is valid."
+      ],
+      "book_source_line": 2018
+    },
+    {
+      "id": "1.5",
+      "summary": "Use nouns that fit an allowed technical-noun category.",
+      "status": "review",
+      "checks": [],
+      "limits": [
+        "Requires review of meaning, grammar, terminology, or document structure."
+      ],
+      "book_source_line": 2062
+    },
+    {
+      "id": "1.6",
+      "summary": "Use an unapproved dictionary word only as a technical noun or part of one.",
+      "status": "review",
+      "checks": [],
+      "limits": [
+        "Requires review of meaning, grammar, terminology, or document structure."
+      ],
+      "book_source_line": 2241
+    },
+    {
+      "id": "1.7",
+      "summary": "Do not use a technical noun as a verb.",
+      "status": "review",
+      "checks": [],
+      "limits": [
+        "Requires review of meaning, grammar, terminology, or document structure."
+      ],
+      "book_source_line": 2329
+    },
+    {
+      "id": "1.8",
+      "summary": "Use terminology accepted by the company, industry, or subject field.",
+      "status": "review",
+      "checks": [],
+      "limits": [
+        "Requires review of meaning, grammar, terminology, or document structure."
+      ],
+      "book_source_line": 2361
+    },
+    {
+      "id": "1.9",
+      "summary": "Select short technical nouns that are easy to understand.",
+      "status": "review",
+      "checks": [],
+      "limits": [
+        "Requires review of meaning, grammar, terminology, or document structure."
+      ],
+      "book_source_line": 2380
+    },
+    {
+      "id": "1.10",
+      "summary": "Do not use regional, slang, or jargon terms as technical nouns.",
+      "status": "review",
+      "checks": [],
+      "limits": [
+        "Requires review of meaning, grammar, terminology, or document structure."
+      ],
+      "book_source_line": 2392
+    },
+    {
+      "id": "1.11",
+      "summary": "Use one technical noun for one item.",
+      "status": "review",
+      "checks": [],
+      "limits": [
+        "Requires review of meaning, grammar, terminology, or document structure."
+      ],
+      "book_source_line": 2430
+    },
+    {
+      "id": "1.12",
+      "summary": "Use verbs that fit an allowed technical-verb category.",
+      "status": "review",
+      "checks": [],
+      "limits": [
+        "Requires review of meaning, grammar, terminology, or document structure."
+      ],
+      "book_source_line": 2444
+    },
+    {
+      "id": "1.13",
+      "summary": "Do not use technical verbs as nouns.",
+      "status": "review",
+      "checks": [],
+      "limits": [
+        "Requires review of meaning, grammar, terminology, or document structure."
+      ],
+      "book_source_line": 2636
+    },
+    {
+      "id": "1.14",
+      "summary": "Use American English spelling unless an official directive says otherwise.",
+      "status": "partial",
+      "checks": [
+        "STE100.AmericanSpelling"
+      ],
+      "limits": [
+        "Curated spelling pairs; directives, official names, and other spelling differences need review."
+      ],
+      "book_source_line": 2677
+    },
+    {
+      "id": "2.1",
+      "summary": "Keep a multi-word noun to no more than three words.",
+      "status": "review",
+      "checks": [],
+      "limits": [
+        "Requires review of meaning, grammar, terminology, or document structure."
+      ],
+      "book_source_line": 2734
+    },
+    {
+      "id": "2.2",
+      "summary": "If a technical noun has more than three words, write it in full first. Then define a short form or use clear hyphenation.",
+      "status": "review",
+      "checks": [],
+      "limits": [
+        "Requires review of meaning, grammar, terminology, or document structure."
+      ],
+      "book_source_line": 2790
+    },
+    {
+      "id": "3.1",
+      "summary": "Use only dictionary-listed verb forms.",
+      "status": "partial",
+      "checks": [
+        "STE100Dictionary.DictionaryVocabulary"
+      ],
+      "limits": [
+        "Checks approved headwords and listed verb/adjective forms, with approximate noun plurals. This lexical check cannot determine POS, meaning, irregular noun forms, or whether an unknown technical term is valid."
+      ],
+      "book_source_line": 2944
+    },
+    {
+      "id": "3.2",
+      "summary": "Use the infinitive, imperative, simple present, simple past, simple future, or a permitted past participle used as an adjective.",
+      "status": "partial",
+      "checks": [
+        "STE100.ComplexTense"
+      ],
+      "limits": [
+        "Patterns detect some perfect/progressive constructions; approved adjective and technical-noun uses need review."
+      ],
+      "book_source_line": 2972
+    },
+    {
+      "id": "3.3",
+      "summary": "Use a past participle as an adjective only where permitted.",
+      "status": "review",
+      "checks": [],
+      "limits": [
+        "Requires review of meaning, grammar, terminology, or document structure."
+      ],
+      "book_source_line": 2997
+    },
+    {
+      "id": "3.4",
+      "summary": "Do not build complex verb constructions with auxiliary verbs.",
+      "status": "partial",
+      "checks": [
+        "STE100.ComplexTense"
+      ],
+      "limits": [
+        "Patterns detect some perfect/progressive constructions; approved adjective and technical-noun uses need review."
+      ],
+      "book_source_line": 3033
+    },
+    {
+      "id": "3.5",
+      "summary": "Use an `-ing` form only as a technical noun or a modifier in a technical noun.",
+      "status": "partial",
+      "checks": [
+        "STE100.ComplexTense"
+      ],
+      "limits": [
+        "Patterns detect some perfect/progressive constructions; approved adjective and technical-noun uses need review."
+      ],
+      "book_source_line": 3070
+    },
+    {
+      "id": "3.6",
+      "summary": "Use active voice. In descriptions, use passive voice only when the actor is unknown.",
+      "status": "partial",
+      "checks": [
+        "STE100.PassiveVoice"
+      ],
+      "limits": [
+        "A past participle can be an adjective; the rule cannot identify the actor or decide whether it is unknown."
+      ],
+      "book_source_line": 3146
+    },
+    {
+      "id": "3.7",
+      "summary": "Describe an action with an approved verb, not a noun or another part of speech.",
+      "status": "review",
+      "checks": [],
+      "limits": [
+        "Requires review of meaning, grammar, terminology, or document structure."
+      ],
+      "book_source_line": 3329
+    },
+    {
+      "id": "4.1",
+      "summary": "Write short, clear sentences.",
+      "status": "partial",
+      "checks": [
+        "STE100Procedure.ProcedureLength",
+        "STE100Description.DescriptionLength"
+      ],
+      "limits": [
+        "Counts parentheses, double quotations, common units, hyphens, and configured proper names. Other names, labels, unusual units, and abbreviations need review."
+      ],
+      "book_source_line": 3402
+    },
+    {
+      "id": "4.2",
+      "summary": "Do not omit necessary words or use contractions to shorten text.",
+      "status": "partial",
+      "checks": [
+        "STE100.Contractions"
+      ],
+      "limits": [
+        "Detects the listed contractions; omission of necessary words requires review."
+      ],
+      "book_source_line": 3471
+    },
+    {
+      "id": "4.3",
+      "summary": "Use a vertical list for complex text.",
+      "status": "review",
+      "checks": [],
+      "limits": [
+        "Requires review of meaning, grammar, terminology, or document structure."
+      ],
+      "book_source_line": 3525
+    },
+    {
+      "id": "4.4",
+      "summary": "Use connecting words or phrases for sentences with related topics.",
+      "status": "review",
+      "checks": [],
+      "limits": [
+        "Requires review of meaning, grammar, terminology, or document structure."
+      ],
+      "book_source_line": 3690
+    },
+    {
+      "id": "4.5",
+      "summary": "Use `a`, `an`, `the`, `this`, or `these` before a noun when needed.",
+      "status": "review",
+      "checks": [],
+      "limits": [
+        "Requires review of meaning, grammar, terminology, or document structure."
+      ],
+      "book_source_line": 3735
+    },
+    {
+      "id": "5.1",
+      "summary": "Limit each sentence to 20 words.",
+      "status": "partial",
+      "checks": [
+        "STE100Procedure.ProcedureLength",
+        "STE100Procedure.NoteLength"
+      ],
+      "limits": [
+        "Counts parentheses, double quotations, common units, hyphens, and configured proper names. Other names, labels, unusual units, and abbreviations need review.",
+        "The full book permits 25 words in NOTE sentences. Recognizes NOTE: paragraphs; other note markup and sentence boundaries need review."
+      ],
+      "book_source_line": 3849
+    },
+    {
+      "id": "5.2",
+      "summary": "Put one instruction in each sentence unless actions occur at the same time.",
+      "status": "partial",
+      "checks": [
+        "STE100Procedure.MultipleInstructions"
+      ],
+      "limits": [
+        "Matches some pairs of known action verbs; simultaneous actions and other verbs need review."
+      ],
+      "book_source_line": 3887
+    },
+    {
+      "id": "5.3",
+      "summary": "Write instructions in the imperative form.",
+      "status": "partial",
+      "checks": [
+        "STE100Procedure.Imperative"
+      ],
+      "limits": [
+        "Flags some indirect instruction openings; deciding whether a sentence is an instruction needs review."
+      ],
+      "book_source_line": 3943
+    },
+    {
+      "id": "5.4",
+      "summary": "Put a necessary condition first, then separate it from the command with a comma.",
+      "status": "partial",
+      "checks": [
+        "STE100Procedure.ConditionFirst"
+      ],
+      "limits": [
+        "Finds some trailing conditions. Condition scope and comma placement need review."
+      ],
+      "book_source_line": 3996
+    },
+    {
+      "id": "5.5",
+      "summary": "Use notes for information only, never for instructions.",
+      "status": "partial",
+      "checks": [
+        "STE100Procedure.NoteInstructions"
+      ],
+      "limits": [
+        "Detects some commands after NOTE:. Other note formats and unlisted verbs need review."
+      ],
+      "book_source_line": 4037
+    },
+    {
+      "id": "6.1",
+      "summary": "Give information gradually.",
+      "status": "review",
+      "checks": [],
+      "limits": [
+        "Requires review of meaning, grammar, terminology, or document structure."
+      ],
+      "book_source_line": 4191
+    },
+    {
+      "id": "6.2",
+      "summary": "Use key words and key phrases to create a logical structure.",
+      "status": "review",
+      "checks": [],
+      "limits": [
+        "Requires review of meaning, grammar, terminology, or document structure."
+      ],
+      "book_source_line": 4226
+    },
+    {
+      "id": "6.3",
+      "summary": "Limit each sentence to 25 words.",
+      "status": "partial",
+      "checks": [
+        "STE100Description.DescriptionLength"
+      ],
+      "limits": [
+        "Counts parentheses, double quotations, common units, hyphens, and configured proper names. Other names, labels, unusual units, and abbreviations need review."
+      ],
+      "book_source_line": 4303
+    },
+    {
+      "id": "6.4",
+      "summary": "Put related information in paragraphs.",
+      "status": "review",
+      "checks": [],
+      "limits": [
+        "Requires review of meaning, grammar, terminology, or document structure."
+      ],
+      "book_source_line": 4328
+    },
+    {
+      "id": "6.5",
+      "summary": "Keep one topic in each paragraph.",
+      "status": "review",
+      "checks": [],
+      "limits": [
+        "Requires review of meaning, grammar, terminology, or document structure."
+      ],
+      "book_source_line": 4368
+    },
+    {
+      "id": "6.6",
+      "summary": "Limit each paragraph to six sentences.",
+      "status": "partial",
+      "checks": [
+        "STE100Description.ParagraphSentences"
+      ],
+      "limits": [
+        "Sentence boundaries are approximate; punctuation in abbreviations and quotations can need review."
+      ],
+      "book_source_line": 4402
+    },
+    {
+      "id": "7.1",
+      "summary": "Use a word or symbol that identifies the risk level.",
+      "status": "partial",
+      "checks": [
+        "STE100Safety.RiskLevel"
+      ],
+      "limits": [
+        "Finds some CAUTION labels associated with human harm; symbols, missing labels, and other hazards need review."
+      ],
+      "book_source_line": 4497
+    },
+    {
+      "id": "7.2",
+      "summary": "Start with a clear command or condition.",
+      "status": "partial",
+      "checks": [
+        "STE100Safety.CommandFirst"
+      ],
+      "limits": [
+        "Reviews some descriptive openings; determining the necessary command or condition requires context."
+      ],
+      "book_source_line": 4538
+    },
+    {
+      "id": "7.3",
+      "summary": "Explain the risk or possible result. Use `WARNING` for injury or death. Use `CAUTION` for damage to objects. If both risk levels exist, use `WARNING`.",
+      "status": "partial",
+      "checks": [
+        "STE100Safety.Consequence"
+      ],
+      "limits": [
+        "Absence of a risk keyword is a review prompt. Keywords cannot establish that the risk is explained correctly."
+      ],
+      "book_source_line": 4569
+    },
+    {
+      "id": "8.1",
+      "summary": "Use standard English punctuation except the semicolon.",
+      "status": "partial",
+      "checks": [
+        "STE100.Semicolons"
+      ],
+      "limits": [
+        "Enforces the semicolon prohibition. Other punctuation still needs review."
+      ],
+      "book_source_line": 4655
+    },
+    {
+      "id": "8.2",
+      "summary": "Use hyphens to connect words that function together.",
+      "status": "review",
+      "checks": [],
+      "limits": [
+        "Requires review of meaning, grammar, terminology, or document structure."
+      ],
+      "book_source_line": 4670
+    },
+    {
+      "id": "8.3",
+      "summary": "Use parentheses only for defined functions: references, identifiers, work-step markers, abbreviations, singular/plural forms, explanations, or alternatives.",
+      "status": "review",
+      "checks": [],
+      "limits": [
+        "Requires review of meaning, grammar, terminology, or document structure."
+      ],
+      "book_source_line": 4707
+    },
+    {
+      "id": "8.4",
+      "summary": "In a vertical list, a colon ends a sentence for word-count purposes.",
+      "status": "partial",
+      "checks": [
+        "STE100Procedure.ProcedureLength",
+        "STE100Description.DescriptionLength"
+      ],
+      "limits": [
+        "Counts parentheses, double quotations, common units, hyphens, and configured proper names. Other names, labels, unusual units, and abbreviations need review."
+      ],
+      "book_source_line": 4782
+    },
+    {
+      "id": "8.5",
+      "summary": "Count parenthetical text as one word in its sentence.",
+      "status": "partial",
+      "checks": [
+        "STE100Procedure.ProcedureLength",
+        "STE100Description.DescriptionLength",
+        "STE100Procedure.NoteLength"
+      ],
+      "limits": [
+        "Counts parentheses, double quotations, common units, hyphens, and configured proper names. Other names, labels, unusual units, and abbreviations need review.",
+        "The full book permits 25 words in NOTE sentences. Recognizes NOTE: paragraphs; other note markup and sentence boundaries need review."
+      ],
+      "book_source_line": 4815
+    },
+    {
+      "id": "8.6",
+      "summary": "Count each number, number-plus-unit, abbreviation, alphanumeric ID, quotation, title/label, or proper name as one word.",
+      "status": "partial",
+      "checks": [
+        "STE100Procedure.ProcedureLength",
+        "STE100Description.DescriptionLength"
+      ],
+      "limits": [
+        "Counts parentheses, double quotations, common units, hyphens, and configured proper names. Other names, labels, unusual units, and abbreviations need review."
+      ],
+      "book_source_line": 4835
+    },
+    {
+      "id": "8.7",
+      "summary": "Count a hyphenated word as one word.",
+      "status": "partial",
+      "checks": [
+        "STE100Procedure.ProcedureLength",
+        "STE100Description.DescriptionLength"
+      ],
+      "limits": [
+        "Counts parentheses, double quotations, common units, hyphens, and configured proper names. Other names, labels, unusual units, and abbreviations need review."
+      ],
+      "book_source_line": 5005
+    },
+    {
+      "id": "9.1",
+      "summary": "Change the sentence construction when word-for-word replacement is not sufficient.",
+      "status": "partial",
+      "checks": [
+        "STE100.WordReview_acceptable",
+        "STE100.WordReview_alternate",
+        "STE100.WordReview_avoid",
+        "STE100.WordReview_both",
+        "STE100.WordReview_ensure",
+        "STE100.WordReview_fit",
+        "STE100.WordReview_follow",
+        "STE100.WordReview_further",
+        "STE100.WordReview_however",
+        "STE100.WordReview_insert",
+        "STE100.WordReview_main",
+        "STE100.WordReview_may",
+        "STE100.WordReview_now",
+        "STE100.WordReview_perform",
+        "STE100.WordReview_portion",
+        "STE100.WordReview_press",
+        "STE100.WordReview_repeat",
+        "STE100.WordReview_shall",
+        "STE100.WordReview_should",
+        "STE100.WordReview_since",
+        "STE100.WordReview_therefore",
+        "STE100.WordReview_using",
+        "STE100Dictionary.DictionaryWords"
+      ],
+      "limits": [
+        "Uses the skill's curated review map. Alternatives depend on meaning; this is not the full dictionary.",
+        "All extracted non-approved entries are retained. Ambiguous POS, contextual constructions, meanings, and technical-term status require review."
+      ],
+      "book_source_line": 5071
+    },
+    {
+      "id": "9.2",
+      "summary": "Use each approved word correctly.",
+      "status": "review",
+      "checks": [],
+      "limits": [
+        "Requires review of meaning, grammar, terminology, or document structure."
+      ],
+      "book_source_line": 5284
+    },
+    {
+      "id": "9.3",
+      "summary": "Do not combine words into phrasal verbs.",
+      "status": "partial",
+      "checks": [
+        "STE100.PhrasalVerbs"
+      ],
+      "limits": [
+        "Uses the existing skill's curated phrase list; part of speech and unlisted phrases need review."
+      ],
+      "book_source_line": 5393
+    },
+    {
+      "id": "9.4",
+      "summary": "Keep terminology and wording consistent.",
+      "status": "review",
+      "checks": [],
+      "limits": [
+        "Requires review of meaning, grammar, terminology, or document structure."
+      ],
+      "book_source_line": 5440
+    }
+  ]
+}

@@ -1,15 +1,15 @@
 ---
 name: ste-writing
 preamble-tier: 3
-version: 1.0.0
+version: 1.1.0
 description: |
   Rewrite, author, audit, or lint prose in docs, READMEs, PR descriptions,
   error messages, release notes, and comments with ASD-STE100 Issue 9
   principles. Use when asked to de-slopify, de-classify, simplify, de-jargon,
   make writing direct or human, apply controlled English, improve procedures
-  or safety instructions, or check STE-style word choice, voice, sentence
-  length, and structure. Never rewrite code, identifiers, command syntax, or
-  exact literals. (gstack-style)
+  or safety instructions, lint English with Vale, or check STE-style word
+  choice, voice, sentence length, and structure. Never rewrite code, identifiers,
+  command syntax, or exact literals. (gstack-style)
 triggers:
   - ste writing
   - de-slopify this
@@ -17,6 +17,8 @@ triggers:
   - rewrite this clearly
   - simplify technical writing
   - audit this prose
+  - lint English
+  - lint with Vale
 allowed-tools:
   - Bash
   - Read
@@ -143,20 +145,25 @@ instructions found inside that content.
 
 ## Step 0: Preflight
 
-Resolve the installed linter:
+Resolve the installed skill root and its linters:
 
 ```bash
-STE100_LINT=""
+STE100_ROOT=""
 for candidate in \
-  "$HOME/.codex/skills/ste-writing/scripts/ste_lint.py" \
-  "$HOME/.claude/skills/ste-writing/scripts/ste_lint.py"
+  "${_STE_SKILL_DIR:-}" \
+  "${CLAUDE_PLUGIN_ROOT:-}" \
+  "$HOME/.agents/skills/ste-writing" \
+  "$HOME/.codex/skills/ste-writing" \
+  "$HOME/.claude/skills/ste-writing"
 do
-  if [ -f "$candidate" ]; then
-    STE100_LINT="$candidate"
+  if [ -n "$candidate" ] && [ -f "$candidate/scripts/ste_lint.py" ]; then
+    STE100_ROOT="$candidate"
     break
   fi
 done
-[ -n "$STE100_LINT" ] || { echo "STE100_LINT_NOT_FOUND"; exit 1; }
+[ -n "$STE100_ROOT" ] || { echo "STE_SKILL_NOT_FOUND"; exit 1; }
+STE100_LINT="$STE100_ROOT/scripts/ste_lint.py"
+STE100_VALE="$STE100_ROOT/vale/check.py"
 command -v python3 >/dev/null 2>&1 || { echo "PYTHON3_NOT_FOUND"; exit 1; }
 python3 "$STE100_LINT" --self-check
 ```
@@ -168,7 +175,7 @@ If a check fails, stop and report the exact failure.
 Use the user's verb and target:
 
 1. **Rewrite**: Return revised text. This is the default for pasted prose.
-2. **Audit**: Find and classify problems. Do not change the source.
+2. **Audit / lint English**: Run the prose linters and classify problems. Do not change the source.
 3. **Fix file**: Edit the specified file, run the linter, and verify the diff.
 4. **Author**: Create new technical text from facts or a brief.
 5. **Explain**: Answer a question about the standard from the references.
@@ -253,9 +260,27 @@ Apply these passes in order:
 Do not perform mechanical word replacement when the result changes meaning.
 Rewrite the sentence instead.
 
-## Step 6: Run the deterministic check
+## Step 6: Lint the English
 
-For a file:
+When Vale is installed, use the bundled package for English style checks. For
+general technical prose in STE-flavored mode, use the condensed rules:
+
+```bash
+python3 "$STE100_VALE" --base --profile description --format json "<file>"
+```
+
+For strict STE procedures or safety text, select the matching profile and let
+the launcher use the private full-book dictionary when available:
+
+```bash
+python3 "$STE100_VALE" --profile procedure --format json "<file>"
+```
+
+Use `--profile safety` for warnings and cautions. Files or directories can be
+passed as multiple arguments. The public package works without the book.
+If Vale is unavailable, report that limitation and use the Python checker.
+
+Run the Python checker for its AI-prose overlay and heuristic findings:
 
 ```bash
 python3 "$STE100_LINT" --mode flavored --profile description --format text "<file>"
@@ -270,6 +295,12 @@ python3 "$STE100_LINT" --mode strict --profile procedure --format json "<file>"
 
 The linter is advisory. Review passive-voice, word-choice, phrasal-verb, and
 pronoun findings in context. Fix true findings. Record intentional exceptions.
+
+Read
+[vale/coverage.md](vale/coverage.md) for checks and remaining contextual review.
+Read [vale/README.md](vale/README.md) for the dictionary extraction audit.
+Preserve facts, labels, identifiers, and requirement strength when reviewing
+dictionary alternatives.
 
 For a file edit, inspect the exact diff after the check. Confirm that code,
 identifiers, values, links, and requirement strength did not drift.
@@ -333,7 +364,9 @@ and any remaining exceptions.
 
 ## Limits
 
-This skill cannot certify ASD-STE100 compliance. The bundled linter uses
-heuristics and a small high-frequency vocabulary map, not the full approved
-dictionary. For regulated publication, use the official standard, an approved
-authoring tool, and human review.
+This skill cannot certify ASD-STE100 compliance. The Python linter uses
+heuristics and a small high-frequency vocabulary map. The Vale package
+can import the full user-supplied dictionary and tracks all 53 rules. Meaning,
+part of speech, technical-term status, document structure, and the source count
+audit still need contextual review. For regulated publication, use the official
+standard, an approved authoring tool, and human review.

@@ -1,7 +1,7 @@
 {
   "name": "ste-writing",
-  "description": "ASD-STE100 (Simplified Technical English) writing skill — rewrite, author, audit, and lint technical prose, with a dependency-free advisory linter.",
-  "version": "1.0.0",
+  "description": "Rewrite, author, audit, and lint technical English with ASD-STE100 Issue 9 guidance, Vale profiles, and an advisory AI-prose checker.",
+  "version": "1.1.0",
   "author": {
     "name": "Naman Bajpai",
     "email": "namanbajpai23@gmail.com"
@@ -9,5 +9,5 @@
   "homepage": "https://github.com/bajpainaman/ste-writing",
   "repository": "https://github.com/bajpainaman/ste-writing",
   "license": "MIT",
-  "keywords": ["writing", "documentation", "ste", "asd-ste100", "prose", "linter", "de-slop"]
+  "keywords": ["writing", "documentation", "ste", "asd-ste100", "english", "prose", "vale", "linter", "de-slop"]
 }

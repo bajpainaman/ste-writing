@@ -164,11 +164,25 @@ done
 [ -n "$STE100_ROOT" ] || { echo "STE_SKILL_NOT_FOUND"; exit 1; }
 STE100_LINT="$STE100_ROOT/scripts/ste_lint.py"
 STE100_VALE="$STE100_ROOT/vale/check.py"
+# Reuse a local full-book build from a skill installation.
+for candidate in \
+  "$STE100_ROOT/vale" \
+  "$HOME/.claude/skills/ste-writing/vale" \
+  "$HOME/.agents/skills/ste-writing/vale" \
+  "$HOME/.codex/skills/ste-writing/vale"
+do
+  if [ -f "$candidate/check.py" ] && [ -f "$candidate/private/description.ini" ]; then
+    STE100_VALE="$candidate/check.py"
+    break
+  fi
+done
 command -v python3 >/dev/null 2>&1 || { echo "PYTHON3_NOT_FOUND"; exit 1; }
 python3 "$STE100_LINT" --self-check
 ```
 
 If a check fails, stop and report the exact failure.
+Plugin installations can reuse a local full-book build without copying the
+source into the plugin cache.
 
 ## Step 1: Detect mode
 

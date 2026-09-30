@@ -30,9 +30,9 @@ The score measures style readiness, not certification.
 
 Start at 100 and deduct:
 
-- 20 for each unresolved high finding;
-- 8 for each medium finding;
-- 2 for each low finding;
+- 20 for each unresolved high finding.
+- 8 for each medium finding.
+- 2 for each low finding.
 - 0 for an advisory finding until human review confirms it.
 
 Do not report a score below zero. A high score does not prove dictionary

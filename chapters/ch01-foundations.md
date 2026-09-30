@@ -18,8 +18,8 @@ removes model-favored filler and hype. It is not part of the official standard.
 
 - **Reader over writer**: select wording that reduces reader interpretation.
 - **One term, one meaning**: consistency is more important than stylistic variety.
-- **Structure before vocabulary**: a different sentence construction is often
-  safer than a one-word substitution.
+- **Structure before vocabulary**: prefer a different sentence construction
+  when a one-word substitution would change meaning.
 - **Controlled does not mean incomplete**: keep all facts, conditions,
   exceptions, and risks.
 

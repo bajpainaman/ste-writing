@@ -38,7 +38,7 @@ Incomplete:
 Structured form:
 
 > CAUTION: Before you rotate the key, release the lock. The key can break if the
-> lock is engaged.
+> lock remains engaged.
 
 Use this rewrite only if the source confirms object damage and the stated cause.
 If injury is possible, the label and consequence need a domain review.

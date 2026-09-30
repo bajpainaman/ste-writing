@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.2.0 — 2026-09-29
+
+- Run Vale automatically after prose edits in Claude and Codex.
+- Install a verified Vale release automatically when needed.
+- Add guided setup for one global personal style alongside the STE rules.
+- Ask permission for each repository before adding the GitHub Actions workflow.
+- Load the shared Paul Graham, Patrick O'Grady, and Stripe preference profile in CI.
+
 ## 1.1.0 — 2026-09-29
 
 - Add Vale linting for technical English, with description, procedure, and safety profiles.

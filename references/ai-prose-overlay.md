@@ -18,7 +18,7 @@ Delete openings that delay the point:
 - "In today's rapidly evolving..."
 - "When it comes to..."
 - "At its core..."
-- "As we have seen..."
+- `As we have seen...`
 - "In conclusion..."
 
 Start with the fact, decision, action, or result.
@@ -36,7 +36,7 @@ Examples:
 - Weak: "The service provides a robust authentication solution."
 - Better: "The service rejects expired tokens and rotates signing keys every 24 hours."
 
-- Weak: "This seamless workflow improves productivity."
+- Weak: `This seamless workflow improves productivity.`
 - Better: "The workflow removes two manual approval steps."
 
 ## Remove model-favored filler
@@ -80,10 +80,10 @@ terms.
 
 Use a connector only when it states a real relationship:
 
-- `because` for cause;
-- `but` for contrast;
-- `thus` or `as a result` for consequence;
-- `then` for sequence;
+- `because` for cause.
+- `but` for contrast.
+- `thus` or `as a result` for consequence.
+- `then` for sequence.
 - `for example` for an example.
 
 Delete ornamental transitions such as `moreover`, `furthermore`, and
@@ -93,10 +93,10 @@ Delete ornamental transitions such as `moreover`, `furthermore`, and
 
 Do not add:
 
-- "clearly", "obviously", or "undoubtedly" without proof;
-- "some may argue" without a real source;
-- a benefits-and-challenges paragraph when the user asked for one decision;
-- a generic caveat that does not change the answer;
+- "clearly", "obviously", or "undoubtedly" without proof.
+- "some may argue" without a real source.
+- a benefits-and-challenges paragraph when the user asked for one decision.
+- a generic caveat that does not change the answer.
 - a claim that "experts agree" without attribution.
 
 State the evidence, confidence, and unknowns.
@@ -106,9 +106,9 @@ State the evidence, confidence, and unknowns.
 Avoid:
 
 - a preview paragraph, a detailed list, and a closing paragraph that repeat the
-  same points;
-- every bullet starting with a bold label followed by the same idea;
-- "What this means" after a sentence that already states the meaning;
+  same points.
+- every bullet starting with a bold label followed by the same idea.
+- "What this means" after a sentence that already states the meaning.
 - a summary when the response is already short.
 
 Say each fact once.
@@ -117,10 +117,10 @@ Say each fact once.
 
 Direct does not mean robotic. Keep:
 
-- concrete examples;
-- domain-specific humor that does not hide meaning;
-- a decisive recommendation with its reason;
-- explicit uncertainty;
+- concrete examples.
+- domain-specific humor that does not hide meaning.
+- a decisive recommendation with its reason.
+- explicit uncertainty.
 - brief empathy when the situation warrants it.
 
 Do not force uppercase, aerospace terminology, or formal warning labels onto

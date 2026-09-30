@@ -4,9 +4,35 @@ Write clearer technical prose. Lint the English.
 
 This skill applies [ASD-STE100](https://www.asd-ste100.org/) (Simplified Technical English, Issue 9) principles to docs, READMEs, PR descriptions, error messages, release notes, and comments. It rewrites, authors, audits, and lints prose while preserving facts, requirements, code, identifiers, command syntax, and exact literals.
 
-## Lint English
+## Automatic English linting
 
-Install [Vale](https://docs.vale.sh/topics/installation), then run these commands from the repository root:
+The Claude plugin runs Vale after prose edits. The guided installer also sets up Codex hooks:
+
+```bash
+python3 scripts/install.py
+```
+
+The installer asks what writing you like, which wording to exclude, which English spelling to use, and whose traits to draw from. It saves one global style at `~/.config/ste-writing/style.json` and generates the Vale configuration alongside the STE rules.
+
+Vale installs automatically when needed. Restart your clients once after installing hooks. New sessions load your preferences. Prose edits through `Write`, `Edit`, `MultiEdit`, and `apply_patch` trigger a check and return findings to the agent.
+
+The shared profile draws on Paul Graham, Patrick O'Grady, and Stripe. It favors ordinary words, concrete reasoning, precise terms, and paragraphs of four sentences or fewer. We inferred these traits from the references you selected.
+
+Voice preferences guide the writer. Measurable rules check spelling, sentence limits, paragraph limits, and configured wording.
+
+## GitHub Actions
+
+For each repository, the hook asks permission before adding `.github/workflows/ste-english.yml`. Review [the template](automation/ste-english.yml). After approval:
+
+```bash
+python3 scripts/enable_vale_ci.py --repo /path/to/repo --approve
+```
+
+The workflow installs Vale and checks changed tracked prose on pushes and pull requests. A manual run checks all tracked prose. Every workflow loads the shared profile from this repository, so personal style files stay centralized. An existing different workflow requires review before changing it.
+
+## Run a check directly
+
+Run these commands from the repository root. The launcher installs Vale automatically:
 
 ```bash
 # General technical English: condensed STE style checks.
@@ -19,9 +45,13 @@ python3 vale/check.py --profile procedure runbook.md
 python3 vale/check.py --base --format json README.md
 ```
 
-The [Vale package](vale/README.md) includes description, procedure, and safety profiles. It checks sentence and paragraph length, contractions, punctuation, voice, word choice, and configured terminology. The description profile is the default. The `--base` option selects the public rules. Without it, the launcher adds the private full-book dictionary when available.
+The [Vale package](vale/README.md) includes description, procedure, and safety profiles. It checks sentence and paragraph length, contractions, punctuation, voice, word choice, and configured terminology. The description profile is the default.
 
-All **53 writing rules** have a [coverage entry](vale/coverage.md). **27 have partial automated checks. 26 require contextual review.** The compiler can import the original book's dictionary, usage restrictions, and source locations. The full book and generated dictionary data stay local and Git-ignored.
+The `--base` option selects the public rules. Without it, the launcher adds the private full-book dictionary when available.
+
+All **53 writing rules** have a [coverage entry](vale/coverage.md). **27 have partial automated checks. 26 require contextual review.**
+
+The compiler can import the original book's dictionary, usage restrictions, and source locations. The full book and generated dictionary data stay local and Git-ignored.
 
 These are English style checks. Meaning, grammatical use, technical terms, and safety decisions still require review. A clean result does not certify STE compliance.
 
@@ -63,6 +93,8 @@ With `--strict-exit`, the checker returns exit code 1 when a non-advisory findin
 - `cheatsheet.md`, `glossary.md`, `patterns.md`: quick references
 - `scripts/`: the linter and its tests
 - `vale/`: profiles, compiler, glossary, rules, and coverage audit
+- `profiles/`: the shared style used by CI and the installer's initial settings
+- `automation/` and `hooks/`: CI template and automatic lint hooks
 - `evals/cases.json`: eval cases
 
 ## Tests

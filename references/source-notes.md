@@ -75,7 +75,7 @@ Useful regions:
 The public package contains condensed study notes, original application
 guidance, and linter code. It excludes the full standard, source archive,
 extracted dictionary, and generated full-dictionary scripts. Keep those source
-materials in the Git-ignored `vale/private/` directory; the code's MIT license
+materials in the Git-ignored `vale/private/` directory. The code's MIT license
 does not grant rights to redistribute the standard.
 
 Use the official document for regulated work. Do not present OCR or these notes as

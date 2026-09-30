@@ -12,9 +12,9 @@ list technical nouns or technical verbs as normal headwords.
 
 An approved word can still be wrong when:
 
-- the sentence uses a different part of speech;
-- the sentence uses an unapproved meaning;
-- the form or tense is not permitted;
+- the sentence uses a different part of speech.
+- the sentence uses an unapproved meaning.
+- the dictionary does not permit the form or tense.
 - a help note restricts the word to a context.
 
 ## Lookup workflow
@@ -31,9 +31,9 @@ An approved word can still be wrong when:
 
 Dictionary help can:
 
-- explain how to use an approved word;
-- restrict an approved word to one meaning;
-- restrict a word to one context, such as safety text;
+- explain how to use an approved word.
+- restrict an approved word to one meaning.
+- restrict a word to one context, such as safety text.
 - give other important usage information.
 
 ## Failure modes

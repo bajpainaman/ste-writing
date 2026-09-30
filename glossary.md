@@ -28,7 +28,7 @@ or gives other usage information.
 **Nominalization** - A noun form that hides an action, such as `implementation`
 instead of `implement`.
 
-**Part of speech** - The grammatical role in which a dictionary word is approved.
+**Part of speech** - The grammatical role for which the dictionary approves a word.
 
 **Phrasal verb** - A verb plus another word that creates a meaning not clear from
 the verb alone.

@@ -1,0 +1,22 @@
+{
+  "name": "Plain technical English",
+  "language": "en-US",
+  "references": ["Paul Graham", "Patrick O'Grady", "Stripe"],
+  "likes": [
+    "Use ordinary words and simple sentences.",
+    "Lead with the idea, action, or result.",
+    "Explain mechanisms and tradeoffs with concrete examples.",
+    "Use precise terms and give developers enough detail to act."
+  ],
+  "dislikes": ["Padded introductions", "Vague hype", "Canned conclusions", "Unexplained jargon"],
+  "avoid_terms": ["delve", "seamless", "game-changing", "revolutionary", "cutting-edge", "it's worth noting", "in today's world", "at the end of the day"],
+  "preferred_terms": {},
+  "max_sentence_words": 25,
+  "max_paragraph_sentences": 4,
+  "inferred_traits": true,
+  "sources": [
+    "https://paulgraham.com/simply.html",
+    "https://patrickogrady.xyz/",
+    "https://docs.stripe.com/"
+  ]
+}

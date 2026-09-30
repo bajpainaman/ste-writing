@@ -33,9 +33,11 @@ present details and exceptions.
 
 Weak:
 
-> By leveraging a distributed architecture and asynchronous processing, the
-> platform provides a robust and scalable solution that can help teams manage
-> workloads in a seamless manner.
+```text
+By leveraging a distributed architecture and asynchronous processing, the
+platform provides a robust and scalable solution that can help teams manage
+workloads in a seamless manner.
+```
 
 Clear:
 

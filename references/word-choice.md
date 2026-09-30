@@ -8,7 +8,7 @@ For each questionable word:
    meaning. If yes, keep it and use it consistently.
 2. Otherwise, check the official dictionary for approved status, part of speech,
    meaning, and permitted form.
-3. If the word is not approved, inspect the suggested alternatives.
+3. If the dictionary does not approve the word, inspect the suggested alternatives.
 4. Use a word-for-word alternative only when meaning and grammar stay equal.
 5. Otherwise, rewrite the sentence.
 
@@ -40,7 +40,7 @@ not blind replacements.
 | repeat | do ... again | Keep commands and identifiers exact. |
 | shall | must | Change only when both state the same requirement. |
 | should | must | Never strengthen advice into a requirement without authority. |
-| since | because | Use only for cause; keep `since` when it means time if allowed by local policy. |
+| since | because | Use only for cause. Keep `since` when it means time if allowed by local policy. |
 | therefore | thus / as a result | Use only for a proved consequence. |
 | using | use / with | Prefer the primary action as the main verb. |
 

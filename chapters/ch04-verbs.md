@@ -2,7 +2,7 @@
 
 ## Core idea
 
-Put the real action in a direct verb. Use active voice when the actor is known.
+Put the real action in a direct verb. Use active voice when you know the actor.
 Keep tense simple.
 
 ## Preferred forms
@@ -47,7 +47,9 @@ Direct:
 
 Unknown actor:
 
-> The certificate was revoked on July 1.
+```text
+The certificate was revoked on July 1.
+```
 
 Keep the passive form if the source does not identify who revoked it.
 

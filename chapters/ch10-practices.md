@@ -37,7 +37,7 @@ Possible meanings:
 - Install the agent and the default policy together.
 - Use the default policy during installation.
 
-Do not rewrite until the intended relationship is known.
+Do not rewrite until you know the intended relationship.
 
 ## Connects to
 

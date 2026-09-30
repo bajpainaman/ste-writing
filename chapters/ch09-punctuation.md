@@ -18,10 +18,10 @@ the words leave ambiguous.
 
 For strict checks:
 
-- a colon before a vertical list ends the preceding sentence;
-- parenthetical text counts as one word;
+- a colon before a vertical list ends the preceding sentence.
+- parenthetical text counts as one word.
 - each number, number-plus-unit, abbreviation, alphanumeric ID, quotation,
-  heading/label, or proper name counts as one word;
+  heading/label, or proper name counts as one word.
 - a hyphenated term counts as one word.
 
 The bundled linter approximates these rules. It cannot identify every proper name
@@ -38,7 +38,9 @@ or technical token.
 
 Source:
 
-> The check failed; restart the worker.
+```text
+The check failed; restart the worker.
+```
 
 Rewrite:
 

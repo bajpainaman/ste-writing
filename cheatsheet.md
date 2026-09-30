@@ -48,7 +48,7 @@
 | "It is important to note that X" | `X` |
 | "In order to X" | `To X` |
 | "Leverage X to facilitate Y" | Name the actual action |
-| "Robust / seamless / scalable" | Observable behavior or measurement |
+| `Robust / seamless / scalable` | Observable behavior or measurement |
 | Preview + list + recap | Keep the list once |
 | Rotating synonyms | One stable technical term |
 | Generic closing paragraph | Delete it |
@@ -57,17 +57,17 @@
 
 Never change without authority:
 
-- `must` to or from `should`, `may`, or `can`;
-- a warning to a caution, or the reverse;
-- numbers, units, thresholds, names, IDs, URLs, flags, or code;
+- `must` to or from `should`, `may`, or `can`.
+- a warning to a caution, or the reverse.
+- numbers, units, thresholds, names, IDs, URLs, flags, or code.
 - conditions, exceptions, sequence, or uncertainty.
 
 Never rewrite code, identifiers, command syntax, or exact literals.
 
 ## Paragraph check
 
-- one topic;
-- no more than six sentences;
-- first sentence states the topic or result;
-- examples directly support the topic;
+- one topic.
+- no more than six sentences.
+- first sentence states the topic or result.
+- examples directly support the topic.
 - no repeated summary.

@@ -48,10 +48,10 @@ Keep the primary action in the main verb. Do not hide it in nouns such as
 
 Split a sentence when it has:
 
-- two independent actions;
-- more than one condition;
-- a long interruption between actor and verb;
-- a contrast and a result in the same sentence;
+- two independent actions.
+- more than one condition.
+- a long interruption between actor and verb.
+- a contrast and a result in the same sentence.
 - more than the profile word limit.
 
 For procedures, use one instruction per sentence. Keep simultaneous actions in
@@ -68,9 +68,9 @@ technical noun at first use.
 
 Do not replace:
 
-- product names, API names, flags, identifiers, or code tokens;
-- a legal or standards term whose exact wording carries force;
-- a technical term when the simpler word is less precise;
+- product names, API names, flags, identifiers, or code tokens.
+- a legal or standards term whose exact wording carries force.
+- a technical term when the simpler word is less precise.
 - modality without evidence that the requirement level is equal.
 
 ## 6. Apply the AI-prose overlay

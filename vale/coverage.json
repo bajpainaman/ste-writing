@@ -58,8 +58,8 @@
         "STE100Dictionary.DictionaryVocabulary"
       ],
       "limits": [
-        "Uses the skill's curated review map. Alternatives depend on meaning; this is not the full dictionary.",
-        "All extracted non-approved entries are retained. Ambiguous POS, contextual constructions, meanings, and technical-term status require review.",
+        "Uses the skill's curated review map. Alternatives depend on meaning. This is not the full dictionary.",
+        "The importer retains all extracted non-approved entries. Ambiguous POS, contextual constructions, meanings, and technical-term status require review.",
         "Checks approved headwords and listed verb/adjective forms, with approximate noun plurals. This lexical check cannot determine POS, meaning, irregular noun forms, or whether an unknown technical term is valid."
       ],
       "book_source_line": 1894
@@ -194,7 +194,7 @@
         "STE100.AmericanSpelling"
       ],
       "limits": [
-        "Curated spelling pairs; directives, official names, and other spelling differences need review."
+        "Curated spelling pairs. Directives, official names, and other spelling differences need review."
       ],
       "book_source_line": 2677
     },
@@ -238,7 +238,7 @@
         "STE100.ComplexTense"
       ],
       "limits": [
-        "Patterns detect some perfect/progressive constructions; approved adjective and technical-noun uses need review."
+        "Patterns detect some perfect/progressive constructions. Approved adjective and technical-noun uses need review."
       ],
       "book_source_line": 2972
     },
@@ -260,7 +260,7 @@
         "STE100.ComplexTense"
       ],
       "limits": [
-        "Patterns detect some perfect/progressive constructions; approved adjective and technical-noun uses need review."
+        "Patterns detect some perfect/progressive constructions. Approved adjective and technical-noun uses need review."
       ],
       "book_source_line": 3033
     },
@@ -272,7 +272,7 @@
         "STE100.ComplexTense"
       ],
       "limits": [
-        "Patterns detect some perfect/progressive constructions; approved adjective and technical-noun uses need review."
+        "Patterns detect some perfect/progressive constructions. Approved adjective and technical-noun uses need review."
       ],
       "book_source_line": 3070
     },
@@ -284,7 +284,7 @@
         "STE100.PassiveVoice"
       ],
       "limits": [
-        "A past participle can be an adjective; the rule cannot identify the actor or decide whether it is unknown."
+        "A past participle can be an adjective. The rule cannot identify the actor or decide whether it is unknown."
       ],
       "book_source_line": 3146
     },
@@ -319,7 +319,7 @@
         "STE100.Contractions"
       ],
       "limits": [
-        "Detects the listed contractions; omission of necessary words requires review."
+        "Detects the listed contractions. Omission of necessary words requires review."
       ],
       "book_source_line": 3471
     },
@@ -363,7 +363,7 @@
       ],
       "limits": [
         "Counts parentheses, double quotations, common units, hyphens, and configured proper names. Other names, labels, unusual units, and abbreviations need review.",
-        "The full book permits 25 words in NOTE sentences. Recognizes NOTE: paragraphs; other note markup and sentence boundaries need review."
+        "The full book permits 25 words in NOTE sentences. Recognizes NOTE: paragraphs. Other note markup and sentence boundaries need review."
       ],
       "book_source_line": 3849
     },
@@ -375,7 +375,7 @@
         "STE100Procedure.MultipleInstructions"
       ],
       "limits": [
-        "Matches some pairs of known action verbs; simultaneous actions and other verbs need review."
+        "Matches some pairs of known action verbs. Simultaneous actions and other verbs need review."
       ],
       "book_source_line": 3887
     },
@@ -387,7 +387,7 @@
         "STE100Procedure.Imperative"
       ],
       "limits": [
-        "Flags some indirect instruction openings; deciding whether a sentence is an instruction needs review."
+        "Flags some indirect instruction openings. Deciding whether a sentence is an instruction needs review."
       ],
       "book_source_line": 3943
     },
@@ -475,7 +475,7 @@
         "STE100Description.ParagraphSentences"
       ],
       "limits": [
-        "Sentence boundaries are approximate; punctuation in abbreviations and quotations can need review."
+        "Sentence boundaries are approximate. Punctuation in abbreviations and quotations can need review."
       ],
       "book_source_line": 4402
     },
@@ -487,7 +487,7 @@
         "STE100Safety.RiskLevel"
       ],
       "limits": [
-        "Finds some CAUTION labels associated with human harm; symbols, missing labels, and other hazards need review."
+        "Finds some CAUTION labels associated with human harm. Symbols, missing labels, and other hazards need review."
       ],
       "book_source_line": 4497
     },
@@ -499,7 +499,7 @@
         "STE100Safety.CommandFirst"
       ],
       "limits": [
-        "Reviews some descriptive openings; determining the necessary command or condition requires context."
+        "Reviews some descriptive openings. Determining the necessary command or condition requires context."
       ],
       "book_source_line": 4538
     },
@@ -511,7 +511,7 @@
         "STE100Safety.Consequence"
       ],
       "limits": [
-        "Absence of a risk keyword is a review prompt. Keywords cannot establish that the risk is explained correctly."
+        "Absence of a risk keyword is a review prompt. Keywords cannot establish whether the explanation describes the risk correctly."
       ],
       "book_source_line": 4569
     },
@@ -571,7 +571,7 @@
       ],
       "limits": [
         "Counts parentheses, double quotations, common units, hyphens, and configured proper names. Other names, labels, unusual units, and abbreviations need review.",
-        "The full book permits 25 words in NOTE sentences. Recognizes NOTE: paragraphs; other note markup and sentence boundaries need review."
+        "The full book permits 25 words in NOTE sentences. Recognizes NOTE: paragraphs. Other note markup and sentence boundaries need review."
       ],
       "book_source_line": 4815
     },
@@ -631,8 +631,8 @@
         "STE100Dictionary.DictionaryWords"
       ],
       "limits": [
-        "Uses the skill's curated review map. Alternatives depend on meaning; this is not the full dictionary.",
-        "All extracted non-approved entries are retained. Ambiguous POS, contextual constructions, meanings, and technical-term status require review."
+        "Uses the skill's curated review map. Alternatives depend on meaning. This is not the full dictionary.",
+        "The importer retains all extracted non-approved entries. Ambiguous POS, contextual constructions, meanings, and technical-term status require review."
       ],
       "book_source_line": 5071
     },
@@ -654,7 +654,7 @@
         "STE100.PhrasalVerbs"
       ],
       "limits": [
-        "Uses the existing skill's curated phrase list; part of speech and unlisted phrases need review."
+        "Uses the existing skill's curated phrase list. Part of speech and unlisted phrases need review."
       ],
       "book_source_line": 5393
     },

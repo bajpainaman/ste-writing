@@ -429,6 +429,13 @@ if found != undefined {
                 + "\n".join(f"STE100.WordReview_{term} = NO" for term in seed.REVIEW_TERMS) + "\n"
             )
     files[".vale.ini"] = files["description.ini"]
+    for record in rules.values():
+        record["limits"] = [
+            re.sub(r";\s+([a-z])", lambda match: ". " + match[1].upper(), limit)
+            .replace("All extracted non-approved entries are retained.", "The importer retains all extracted non-approved entries.")
+            .replace("Keywords cannot establish that the risk is explained correctly.", "Keywords cannot establish whether the explanation describes the risk correctly.")
+            for limit in record["limits"]
+        ]
     metadata = {
         "standard": "ASD-STE100", "issue": 9, "writing_rules": len(rules),
         "source": "references/rules.md (condensed summaries)",

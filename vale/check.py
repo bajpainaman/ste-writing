@@ -9,6 +9,7 @@ import subprocess
 import sys
 from pathlib import Path
 from ensure import ensure_vale, resolve_vale
+from style_config import ensure_packages
 
 
 def main() -> int:
@@ -42,6 +43,11 @@ def main() -> int:
     findings = {}
     exit_code = 0
     for selected in configs:
+        try:
+            ensure_packages(vale, selected)
+        except (OSError, RuntimeError, subprocess.TimeoutExpired) as error:
+            print(f"Vale package setup did not complete: {error}", file=sys.stderr)
+            return 2
         command = [vale, "--no-global", "--no-color", "--output=JSON", f"--config={selected}"]
         # Resolve paths so filenames cannot be interpreted as Vale options.
         command.extend(str(Path(p).resolve()) for p in args.paths)

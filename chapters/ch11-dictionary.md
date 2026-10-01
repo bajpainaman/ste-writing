@@ -1,4 +1,4 @@
-# Dictionary Workflow
+# Dictionary workflow
 
 ## Core idea
 

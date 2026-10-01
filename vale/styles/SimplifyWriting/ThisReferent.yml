@@ -1,0 +1,8 @@
+# From Aasim Sani's simplify-writing, commit c4d96746. MIT license.
+extends: existence
+message: "'%s' can have an unclear referent. Name the thing 'this' points at."
+level: suggestion
+scope: sentence
+ignorecase: true
+tokens:
+  - 'this (?:is|was|can|could|will|would|may|might|must|should|has|had|does|did)'

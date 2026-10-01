@@ -1,4 +1,4 @@
-# Sentences and Cohesion
+# Sentences and cohesion
 
 ## Core idea
 

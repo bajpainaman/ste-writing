@@ -2,10 +2,10 @@
 
 ## Primary source
 
-- Title: *ASD-STE100 Simplified Technical English*
+- Title: `ASD-STE100 Simplified Technical English`
 - Issue: 9
-- Publication date: January 2025
-- Publisher: Aerospace, Security and Defence Industries Association of Europe
+- Publication date: `January 2025`
+- Publisher: `Aerospace, Security and Defence Industries Association of Europe`
 - Official site: <https://asd-ste100.org/>
 - Source length: 434 PDF pages
 - Part 1: 9 sections and 53 writing rules
@@ -72,7 +72,7 @@ Useful regions:
 
 ## Scope and rights
 
-The public package contains condensed study notes, original application
+The public package contains condensed study notes, original implementation
 guidance, and linter code. It excludes the full standard, source archive,
 extracted dictionary, and generated full-dictionary scripts. Keep those source
 materials in the Git-ignored `vale/private/` directory. The code's MIT license

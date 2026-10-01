@@ -1,4 +1,4 @@
-# Multi-word Nouns
+# Multi-word nouns
 
 ## Core idea
 

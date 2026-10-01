@@ -1,4 +1,4 @@
-# Foundations and Scope
+# Foundations and scope
 
 ## Core idea
 
@@ -35,12 +35,16 @@ removes model-favored filler and hype. It is not part of the official standard.
 
 Source:
 
-> It is important to note that the deployment process may potentially result in
-> service disruption under certain circumstances.
+```text
+It is important to note that the deployment process may potentially result in
+service disruption under certain circumstances.
+```
 
 STE-flavored:
 
-> The deployment can interrupt the service.
+```text
+The deployment can interrupt the service.
+```
 
 Keep the original sentence if `may potentially` expresses a probability that
 `can` does not preserve. Ask for the intended modality when it matters.

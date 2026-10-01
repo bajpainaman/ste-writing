@@ -12,6 +12,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "vale"))
 from ensure import ensure_vale
+from writing_check import machine_vocabulary
 
 
 def main() -> int:
@@ -23,14 +24,14 @@ def main() -> int:
         command = ["git", "ls-files", "-z"]
     result = subprocess.run(command, check=True, capture_output=True)
     paths = [Path(os.fsdecode(name)) for name in result.stdout.split(b"\0") if name]
-    paths = [p for p in paths if p.suffix.lower() in {".md", ".txt", ".rst", ".adoc", ".html"} and p.is_file()]
+    paths = [p for p in paths if p.suffix.lower() in {".md", ".txt", ".rst", ".adoc", ".html"} and p.is_file() and not machine_vocabulary(p)]
     if not paths:
         print("STE English: no changed prose files.")
         return 0
     profile = os.environ.get("STE_VALE_PROFILE", "description")
     code = 0
     for path in paths:
-        command = [sys.executable, str(ROOT / "vale/check.py"), "--base", "--strict-exit", "--profile", profile]
+        command = [sys.executable, str(ROOT / "scripts/writing_check.py"), "--base", "--no-jev", "--strict-exit", "--profile", profile]
         for parent in path.resolve().parents:
             config = parent / ".vale.ini"
             if config.is_file():

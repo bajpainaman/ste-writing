@@ -39,7 +39,7 @@ how to complete a task.
 **Readiness score** - A style-quality indicator from this skill. It is not a
 compliance certification.
 
-**Semantic invariant** - Meaning that a rewrite must preserve, including facts,
+**Semantic invariant** - Information that a rewrite must preserve, including facts,
 modality, conditions, sequence, uncertainty, and literals.
 
 **Technical noun** - A domain term that names an item or concept and meets the

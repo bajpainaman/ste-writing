@@ -1,4 +1,4 @@
-# Safety Instructions
+# Safety instructions
 
 ## Core idea
 
@@ -33,12 +33,16 @@ Put a condition first when the reader must know it before acting.
 
 Incomplete:
 
-> Be careful when you rotate the key.
+```text
+Be careful when you rotate the key.
+```
 
 Structured form:
 
-> CAUTION: Before you rotate the key, release the lock. The key can break if the
-> lock remains engaged.
+```text
+CAUTION: Before you rotate the key, release the lock. The key can break if the
+lock remains engaged.
+```
 
 Use this rewrite only if the source confirms object damage and the stated cause.
 If injury is possible, the label and consequence need a domain review.

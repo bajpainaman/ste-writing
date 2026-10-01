@@ -1,6 +1,6 @@
 # AI-prose overlay
 
-This overlay is an application layer for AI output. It is not part of
+This overlay adds writing checks for AI output. It is not part of
 ASD-STE100.
 
 ## Remove em dashes
@@ -13,13 +13,13 @@ clear.
 
 Delete openings that delay the point:
 
-- "It is important to note that..."
-- "It is worth mentioning that..."
-- "In today's rapidly evolving..."
-- "When it comes to..."
-- "At its core..."
+- `It is important to note that...`
+- `It is worth mentioning that...`
+- `In today's rapidly evolving...`
+- `When it comes to...`
+- `At its core...`
 - `As we have seen...`
-- "In conclusion..."
+- `In conclusion...`
 
 Start with the fact, decision, action, or result.
 
@@ -93,11 +93,11 @@ Delete ornamental transitions such as `moreover`, `furthermore`, and
 
 Do not add:
 
-- "clearly", "obviously", or "undoubtedly" without proof.
+- `clearly`, `obviously`, or `undoubtedly` without proof.
 - "some may argue" without a real source.
 - a benefits-and-challenges paragraph when the user asked for one decision.
 - a generic caveat that does not change the answer.
-- a claim that "experts agree" without attribution.
+- A claim that `experts agree` without attribution.
 
 State the evidence, confidence, and unknowns.
 

@@ -3,3 +3,10 @@ __pycache__/
 /vale/private/
 /vale/styles/STE100Dictionary/
 /vale/styles/config/scripts/Dictionary*.tengo
+/vale/styles/Google/
+/vale/styles/Readability/
+/vale/styles/Microsoft/
+/vale/styles/proselint/
+/vale/styles/ai-tells/
+/vale/styles/.ste-writing-packages.json
+/vale/styles/config/templates/

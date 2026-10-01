@@ -6,7 +6,19 @@
           {
             "type": "command",
             "command": "python3 \"${CLAUDE_PLUGIN_ROOT}/scripts/vale_hook.py\"",
-            "timeout": 60
+            "timeout": 180
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Write|Edit|MultiEdit|apply_patch",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"${CLAUDE_PLUGIN_ROOT}/scripts/vale_hook.py\"",
+            "timeout": 180
           }
         ]
       }
@@ -18,7 +30,7 @@
           {
             "type": "command",
             "command": "python3 \"${CLAUDE_PLUGIN_ROOT}/scripts/vale_hook.py\"",
-            "timeout": 60
+            "timeout": 180
           }
         ]
       }

@@ -1,4 +1,4 @@
-# Words and Technical Terminology
+# Words and technical terminology
 
 ## Core idea
 
@@ -37,12 +37,16 @@ word map covers common problems only.
 
 Source:
 
-> The worker will leverage the configuration utility to facilitate the
-> initialization of the service.
+```text
+The worker will leverage the configuration utility to facilitate the
+initialization of the service.
+```
 
 Rewrite:
 
-> Use the configuration utility to start the service.
+```text
+Use the configuration utility to start the service.
+```
 
 The rewrite keeps `configuration utility` because it identifies a real tool. It
 replaces three abstract actions with the primary action `start`.

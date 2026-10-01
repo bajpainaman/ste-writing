@@ -290,7 +290,7 @@
     },
     {
       "id": "3.7",
-      "summary": "Describe an action with an approved verb, not a noun or another part of speech.",
+      "summary": "Describe an action with an approved verb rather than a noun or another part of speech.",
       "status": "review",
       "checks": [],
       "limits": [

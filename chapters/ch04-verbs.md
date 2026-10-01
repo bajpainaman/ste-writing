@@ -1,4 +1,4 @@
-# Verbs, Tense, and Voice
+# Verbs, tense, and voice
 
 ## Core idea
 

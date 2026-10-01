@@ -4,7 +4,7 @@ Run from the repository root:
 
 ```bash
 # General technical English without the private dictionary.
-python3 vale/check.py --base README.md docs/
+python3 scripts/writing_check.py --base README.md docs/
 
 # Strict STE profiles; use the private dictionary when available.
 python3 vale/check.py --profile procedure YOUR_FILE.md
@@ -12,7 +12,7 @@ python3 vale/check.py --profile description --format json YOUR_FILE.md
 python3 vale/check.py --profile safety YOUR_FILE.md
 ```
 
-The launcher installs a SHA-256-verified [Vale release](https://github.com/vale-cli/vale/releases/tag/v3.23.0)
+The launcher verifies the SHA-256 checksum of a [Vale release](https://github.com/vale-cli/vale/releases/tag/v3.23.0)
 when no supported binary exists. It requires Python 3 and accepts files or directories. The compiler requires
 Python 3.12 or later. With no `--profile` argument, it uses `description`.
 
@@ -21,10 +21,19 @@ The guided installer saves one global personal style at
 rules. Use `--no-personal-style` to inspect only the package rules. A project
 `.vale.ini` passed with `--config` adds its checks to the global profile.
 
-Session hooks prepare Vale, load personal preferences, and ask permission
+The combined writing launcher adds native Harper grammar checks and configured
+Jev decisions. Use `vale/check.py` for Vale alone or `--no-jev` for local checks.
+See [Jev review](../references/jev-review.md) for setup and comparison limits.
+
+The profiles also load the `SimplifyWriting` rules from Aasim Sani's fork.
+Google, Readability, Microsoft, proselint, and ai-tells packages install
+automatically on the first check. [style_config.py](style_config.py) records
+the selected rules. The STE coverage counts below describe only the STE rules.
+
+Session hooks prepare Vale and Harper, load personal preferences, and ask permission
 before adding CI to a repository. Edit hooks lint Markdown, text,
 reStructuredText, AsciiDoc, and HTML files. Shell edits require the agent
-to run the launcher before finishing.
+to run the combined writing launcher before finishing.
 
 The launcher selects the private full-book dictionary when available.
 Use `--base` to select the condensed package. With a Snap installation, the

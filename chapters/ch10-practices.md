@@ -1,4 +1,4 @@
-# Writing Practices
+# Writing practices
 
 ## Core idea
 

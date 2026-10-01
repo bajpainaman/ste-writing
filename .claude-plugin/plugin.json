@@ -1,7 +1,8 @@
 {
   "name": "ste-writing",
-  "description": "Rewrite, author, audit, and lint technical English with ASD-STE100 Issue 9 guidance, Vale profiles, and an advisory AI-prose checker.",
-  "version": "1.2.0",
+  "description": "Write and lint technical English with STE, personal style, Vale, Harper, and optional TypeSafe Jev review.",
+  "version": "1.3.0",
+  "skills": ["./"],
   "author": {
     "name": "Naman Bajpai",
     "email": "namanbajpai23@gmail.com"

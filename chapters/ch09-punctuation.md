@@ -1,4 +1,4 @@
-# Punctuation and Word Count
+# Punctuation and word count
 
 ## Core idea
 

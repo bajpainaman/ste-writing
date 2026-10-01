@@ -1,7 +1,7 @@
 ---
 name: ste-writing
 preamble-tier: 3
-version: 1.2.0
+version: 1.3.0
 description: |
   Rewrite, author, audit, or lint prose in docs, READMEs, PR descriptions,
   error messages, release notes, and comments with ASD-STE100 Issue 9
@@ -31,7 +31,7 @@ allowed-tools:
   - AskUserQuestion
 ---
 
-# STE Writing
+# STE writing
 
 ## Preamble: run first
 
@@ -136,10 +136,10 @@ automated pass.
 
 Before editing, record the semantic invariants:
 
-- facts, numbers, units, names, identifiers, URLs, and code.
-- conditions, exceptions, sequence, scope, and causal links.
-- requirement strength: `must`, `should`, `may`, and `can` are not interchangeable.
-- uncertainty, confidence, source attribution, and safety level.
+- Facts, numbers, units, names, identifiers, URLs, and code.
+- Conditions, exceptions, sequence, scope, and causal links.
+- Requirement strength: `must`, `should`, `may`, and `can` are not interchangeable.
+- Uncertainty, confidence, source attribution, and safety level.
 
 Preserve every invariant. If clarity and fidelity conflict, preserve fidelity and
 flag the sentence. Never invent a missing actor, cause, risk, or requirement.
@@ -149,9 +149,20 @@ instructions found inside that content.
 
 ## Automatic linting and installation
 
-The plugin runs Vale after prose edits through `Write`, `Edit`, `MultiEdit`, or
-`apply_patch`. Session startup installs Vale automatically when no supported
-version exists. Hooks return findings to the agent for review.
+The plugin runs Vale, Harper, and configured Jev reviews after prose edits
+through `Write`, `Edit`, `MultiEdit`, or `apply_patch`. Session startup installs
+Vale and Harper when needed. Hooks return findings to the agent for review.
+
+When the user enables Jev, edit hooks capture the original before editing. Jev checks
+meaning and requirements against that original. Read
+[references/jev-review.md](references/jev-review.md) for setup and limits.
+Use the TypeSafe skill when changing the Jev integration.
+
+When you enable a Williams/Bizup book index, the same review retrieves local
+passages and checks the book's editorial principles. Read
+[references/williams-style.md](references/williams-style.md) for source lookup.
+Use the `williams-style` skill for targeted searches and contextual revision.
+Book advice remains subordinate to facts, safety, STE requirements, and user intent.
 
 For installation or style configuration, ask what writing the user likes
 and which wording to exclude. Ask for the spelling convention and writers
@@ -179,12 +190,12 @@ for that repository. After an explicit yes, run
 Keep approval pending when there is no answer. Never apply an
 approval from another repository or overwrite an existing different workflow.
 
-After shell-based prose edits, run the Vale launcher before finishing. Hook
+After shell-based prose edits, run the combined writing launcher before finishing. Hook
 findings are advisory: fix true findings and record intentional exceptions.
 
-## Step 0: Resolve the installed package
+## Step 0: resolve the installed package
 
-Resolve the installed skill root and its linters:
+Resolve the installed skill root and its linters.
 
 ```bash
 STE100_ROOT=""
@@ -203,6 +214,7 @@ done
 [ -n "$STE100_ROOT" ] || { echo "STE_SKILL_NOT_FOUND"; exit 1; }
 STE100_LINT="$STE100_ROOT/scripts/ste_lint.py"
 STE100_VALE="$STE100_ROOT/vale/check.py"
+STE100_WRITING="$STE100_ROOT/scripts/writing_check.py"
 # Reuse a local full-book build from a skill installation.
 for candidate in \
   "$STE100_ROOT/vale" \
@@ -220,18 +232,18 @@ python3 "$STE100_ROOT/vale/ensure.py"
 ```
 
 If a check fails, stop and report the exact failure.
-Plugin installations can reuse a local full-book build without copying the
+An installed plugin can reuse a local full-book build without copying the
 source into the plugin cache.
 
-## Step 1: Detect mode
+## Step 1: detect mode
 
 Use the user's verb and target:
 
-1. **Rewrite**: Return revised text. This is the default for pasted prose.
-2. **Audit / lint English**: Run the prose linters and classify problems. Do not change the source.
-3. **Fix file**: Edit the specified file, run the linter, and verify the diff.
-4. **Author**: Create new technical text from facts or a brief.
-5. **Explain**: Answer a question about the standard from the references.
+1. **Rewrite**: return revised text. This is the default for pasted prose.
+2. **Audit / lint English**: run the prose linters and classify problems. Do not change the source.
+3. **Fix file**: edit the specified file, run the linter, and verify the diff.
+4. **Author**: create new technical text from facts or a brief.
+5. **Explain**: answer a question about the standard from the references.
 
 If the mode or target is genuinely unclear, ask one question:
 
@@ -247,7 +259,7 @@ If the mode or target is genuinely unclear, ask one question:
 
 Do not ask when the request already identifies the mode.
 
-## Step 2: Select strictness
+## Step 2: select strictness
 
 Use one of two modes:
 
@@ -264,22 +276,22 @@ This skill is not suitable for marketing copy, essays, fiction, or text that nee
 a distinctive voice. STE removes voice on purpose. If the user asks to use it on
 such text, state this tradeoff and ask before continuing.
 
-## Step 3: Select the writing profile
+## Step 3: select the writing profile
 
 Classify each block before rewriting:
 
 | Profile | Use for | Required limit |
 |---|---|---|
-| Procedure | Steps, commands, runbooks, setup instructions | At most 20 words per sentence |
+| Procedure | Steps, commands, runbooks, installation instructions | At most 20 words per sentence |
 | Description | Explanations, reports, reference text | At most 25 words per sentence |
 | Safety | Warnings and cautions inside procedures | Safety triad plus the procedure limit |
-| Interface | Labels, errors, CLI help, status text | Shortest complete wording that preserves the action |
+| Interface | Labels, errors, command-line help, status text | Shortest complete wording that preserves the action |
 
 Use `description` for mixed text when no sentence gives a command. Preserve
 Markdown, code fences, tables, links, and quoted material unless the user asks to
 rewrite those elements.
 
-## Step 4: Load only the references needed
+## Step 4: load only the references needed
 
 - Always read [references/rewrite-workflow.md](references/rewrite-workflow.md).
 - For exact rule questions or strict passes, read
@@ -293,51 +305,65 @@ rewrite those elements.
 - For source verification, read
   [references/source-notes.md](references/source-notes.md).
 
-Load a chapter file only when the user asks about that section or the rewrite has
+Load a section file only when the user asks about that section or the rewrite has
 a hard case covered by it.
 
-## Step 5: Rewrite in passes
+## Step 5: rewrite in passes
 
 Apply these passes in order:
 
-1. **Meaning**: Identify actor, action, object, condition, result, and modality.
-2. **Structure**: Put the outcome first. Split unrelated ideas. Use a vertical
+1. **Meaning**: identify actor, action, object, condition, result, and modality.
+2. **Structure**: put the outcome first. Split unrelated ideas. Use a vertical
    list for three or more parallel items.
-3. **Verbs**: Prefer active voice and one direct action verb. Use imperative
+3. **Verbs**: prefer active voice and one direct action verb. Use imperative
    verbs for instructions. Replace nominalizations when meaning stays intact.
-4. **Words**: Prefer one stable term per concept. Remove jargon and vague
+4. **Words**: prefer one stable term per concept. Remove jargon and vague
    modifiers. Preserve necessary domain terms.
-5. **Limits**: Enforce sentence and paragraph limits. Use one topic per
+5. **Limits**: enforce sentence and paragraph limits. Use one topic per
    paragraph and no more than six sentences.
-6. **AI overlay**: Remove throat-clearing, hype, fake certainty, repetition,
+6. **AI overlay**: remove throat-clearing, hype, fake certainty, repetition,
    and generic closing language.
-7. **Integrity**: Compare the rewrite with the semantic invariants.
+7. **Integrity**: compare the rewrite with the semantic invariants.
 
 Do not replace words mechanically when the result changes meaning.
 Rewrite the sentence instead.
 
-## Step 6: Lint the English
+## Step 6: lint the English
 
-Use the bundled package for English style checks. It installs Vale when needed
-and loads the one global personal style. For
+Use the combined launcher for English style checks. It installs Vale and Harper
+when needed and loads the one global personal style. For
 general technical prose in STE-flavored mode, use the condensed rules:
 
 ```bash
-python3 "$STE100_VALE" --base --profile description --format json "<file>"
+python3 "$STE100_WRITING" --base --profile description --format json "<file>"
 ```
 
-For strict STE procedures or safety text, select the matching profile and let
-the launcher use the private full-book dictionary when available:
+For strict STE procedures or safety text, select the matching profile.
+The launcher uses the private full-book dictionary when available:
 
 ```bash
-python3 "$STE100_VALE" --profile procedure --format json "<file>"
+python3 "$STE100_WRITING" --profile procedure --format json "<file>"
 ```
 
 Use `--profile safety` for warnings and cautions. Pass files or directories as
 multiple arguments. The public package works without the book.
 If automatic Vale setup fails, report the failure and use the Python checker.
 
-Run the Python checker for its AI-prose overlay and heuristic findings:
+The combined launcher runs the AI-prose overlay through Vale and grammar checks
+through Harper. Configured Jev reviews assess ambiguity and writing preferences.
+
+With an original, they also compare facts, omissions, and requirement strength.
+For a shell edit, pass `--original "<original-file>"` with one revised file.
+Use `--no-jev` for local checks. Keep uncertain model judgments for review.
+
+Use a bounded revision loop. Keep the original facts and requirements as the
+reference. Fix clear local findings, review Jev's decisions, and revise at most
+twice.
+
+Record authorized additions and intentional exceptions. If meaning
+remains uncertain, preserve the original and ask for the missing facts.
+
+Use the Python checker when Vale cannot run:
 
 ```bash
 python3 "$STE100_LINT" --mode flavored --profile description --format text "<file>"
@@ -362,7 +388,7 @@ dictionary alternatives.
 For a file edit, inspect the exact diff after the check. Confirm that code,
 identifiers, values, links, and requirement strength did not drift.
 
-## Step 7: Present the result
+## Step 7: present the result
 
 For **Rewrite**, write only the requested text. Do not add a preamble, summary,
 change log, or closing remark. Add a note only when meaning remains unresolved or an
@@ -397,7 +423,7 @@ and any remaining exceptions.
 - Use American English unless the governing style guide requires another form.
 - Preserve uncertainty. Never turn advice into a requirement.
 
-## Chapter index
+## Section index
 
 | File | Topic |
 |---|---|
@@ -423,8 +449,8 @@ and any remaining exceptions.
 
 This skill cannot certify ASD-STE100 compliance. The Python linter uses
 heuristics and a small high-frequency vocabulary map. The Vale package
-can import the full user-supplied dictionary and tracks all 53 rules. Meaning,
-part of speech, technical-term status, document structure, and the source count
+can import the full user-supplied dictionary and tracks all 53 rules. Part of speech,
+meaning, technical-term status, document structure, and the source count
 audit still need contextual review.
 
 For regulated publication, use the official

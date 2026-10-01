@@ -37,7 +37,7 @@ not blind replacements.
 | perform | do | Prefer the primary action verb when available. |
 | portion | part | Keep defined data or legal terms exact. |
 | press | push | Keep UI labels and hardware names exact. |
-| repeat | do ... again | Keep commands and identifiers exact. |
+| repeat | `do ... again` | Keep commands and identifiers exact. |
 | shall | must | Change only when both state the same requirement. |
 | should | must | Never strengthen advice into a requirement without authority. |
 | since | because | Use only for cause. Keep `since` when it means time if allowed by local policy. |
@@ -68,5 +68,5 @@ not blind replacements.
 Use a pronoun only when one antecedent is possible. Repeat the noun when `it`,
 `they`, `this`, `these`, or `those` can refer to multiple items.
 
-Use gender-neutral wording. Keep gender-specific language only when the context
-requires it, such as a quoted source or a medical distinction.
+Use gender-neutral wording. Preserve gender-specific language that the context
+requires. A quoted source or a medical distinction can require that wording.

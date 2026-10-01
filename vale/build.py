@@ -11,6 +11,7 @@ import sys
 from pathlib import Path
 
 from dictionary import parse_book
+from style_config import profile_config
 
 ROOT = Path(__file__).resolve().parent
 SKILL = ROOT.parent
@@ -418,15 +419,11 @@ if found != undefined {
         styles = ["STE100", "STE100Description" if profile == "description" else "STE100Procedure"]
         if profile == "safety":
             styles.append("STE100Safety")
-        files[f"{profile}.ini"] = (
-            "StylesPath = styles\nMinAlertLevel = suggestion\nVocab = STE100Project\n\n"
-            "[*.{md,txt,rst,adoc,html}]\nBasedOnStyles = " + ", ".join(styles) + "\n"
-        )
+        files[f"{profile}.ini"] = profile_config("styles", styles)
         if dictionary:
-            files[f"private/{profile}.ini"] = (
-                files[f"{profile}.ini"].replace("StylesPath = styles", "StylesPath = ../styles").rstrip()
-                + ", STE100Dictionary\n"
-                + "\n".join(f"STE100.WordReview_{term} = NO" for term in seed.REVIEW_TERMS) + "\n"
+            files[f"private/{profile}.ini"] = profile_config(
+                "../styles", styles, dictionary=True,
+                review_terms=[f"WordReview_{term}" for term in seed.REVIEW_TERMS],
             )
     files[".vale.ini"] = files["description.ini"]
     for record in rules.values():
@@ -456,7 +453,7 @@ if found != undefined {
             "| Rule | Status | Vale checks | Remaining review |", "| --- | --- | --- | --- |"]
     for record in rules.values():
         rows.append("| " + " | ".join((
-            record["id"], record["status"], ", ".join(record["checks"]) or "—",
+            record["id"], record["status"], ", ".join(f"`{check}`" for check in record["checks"]) or "None",
             " ".join(record["limits"]).replace("|", r"\|"),
         )) + " |")
     files["coverage.md"] = "\n".join(rows) + "\n"

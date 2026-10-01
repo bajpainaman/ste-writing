@@ -1,4 +1,4 @@
-# Procedural Writing
+# Procedural writing
 
 ## Core idea
 

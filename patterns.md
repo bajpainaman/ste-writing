@@ -1,6 +1,6 @@
-# Rewrite Patterns
+# Rewrite patterns
 
-## Actor-Action-Object
+## Actor-action-object
 
 **Use when:** passive voice or a nominalization hides responsibility.
 
@@ -9,7 +9,7 @@ object.
 
 **Guard:** do not invent an actor when the source does not identify one.
 
-## Condition-Then-Command
+## Condition-then-command
 
 **Use when:** the reader must know a condition before acting.
 
@@ -17,7 +17,7 @@ object.
 
 **Guard:** keep the condition attached to the action it controls.
 
-## Split-and-Sequence
+## Split-and-sequence
 
 **Use when:** one sentence contains multiple actions.
 
@@ -26,7 +26,7 @@ matters.
 
 **Guard:** keep actions together when they must occur at the same time.
 
-## Progressive Disclosure
+## Progressive disclosure
 
 **Use when:** a description starts with details before the reader understands the
 system.
@@ -36,7 +36,7 @@ exceptions and details.
 
 **Guard:** do not omit detail. Change only its order.
 
-## Stable Terminology
+## Stable terminology
 
 **Use when:** the draft rotates synonyms for style.
 
@@ -44,7 +44,7 @@ exceptions and details.
 
 **Guard:** keep different terms when they identify different roles or objects.
 
-## Restructure, Do Not Substitute
+## Restructure, do not substitute
 
 **Use when:** a disfavored word has no meaning-equivalent replacement.
 
@@ -53,7 +53,7 @@ or direct words.
 
 **Guard:** compare modality, conditions, and scope after the rewrite.
 
-## Safety Triad
+## Safety triad
 
 **Use when:** a procedure contains a risk.
 
@@ -62,16 +62,19 @@ possible result.
 
 **Guard:** risk classification requires domain evidence.
 
-## Evidence-for-Adjective
+## Evidence-for-adjective
 
 **Use when:** a draft says a system is fast, secure, easy, stable, or scalable.
 
 **How:** replace the adjective with the mechanism, limit, measurement, or observed
 effect.
 
+<!-- Two alternative actions share one condition. -->
+<!-- vale Google.OxfordComma = NO -->
 **Guard:** if evidence is absent, delete the claim or label it as an objective.
+<!-- vale Google.OxfordComma = YES -->
 
-## One-Pass Compression
+## One-pass compression
 
 **Use when:** an AI response previews, explains, and summarizes the same point.
 

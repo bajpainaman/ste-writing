@@ -14,7 +14,13 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "vale"))
 from ensure import ensure_vale
+from ensure_harper import ensure_harper
+from style_config import ensure_packages
 from enable_vale_ci import permission_prompt, repository
+from writing_check import machine_vocabulary, remember_original
+from install import GLOBAL, save_style, style_revision
+from jev_review import automatic_enabled
+from style_book import settings as book_settings
 PROSE = {".md", ".txt", ".rst", ".adoc", ".html"}
 PROFILES = {"description", "procedure", "safety"}
 
@@ -38,6 +44,7 @@ def edited_files(payload: dict) -> list[Path]:
         path = path.resolve()
         if (
             path.suffix.lower() in PROSE
+            and not machine_vocabulary(path)
             and path.is_file()
             and not any(part in {".git", "node_modules", "__pycache__"} for part in path.parts)
             and not any(a == "vale" and b == "private" for a, b in zip(path.parts, path.parts[1:]))
@@ -92,15 +99,34 @@ def main() -> int:
     event = payload.get("hook_event_name", "PostToolUse")
     startup = event == "SessionStart"
     paths = edited_files(payload)
+    session = str(payload.get("session_id") or "unknown")
+    if event == "PreToolUse":
+        for path in paths:
+            try:
+                remember_original(path, session)
+            except (OSError, ValueError) as error:
+                feedback(f"Jev original capture did not complete: {error}.", event)
+        return 0
     if not paths and not startup:
         return 0
     messages = []
     try:
+        revision = GLOBAL / ".engine-revision"
+        preferences = GLOBAL / "style.json"
+        if preferences.is_file() and (not revision.is_file() or revision.read_text().strip() != style_revision()):
+            save_style(json.loads(preferences.read_text()))
         executable = ensure_vale()
+        harper = ensure_harper()
+        config = Path.home() / ".config/ste-writing/description.ini"
+        ensure_packages(executable, config if config.is_file() else ROOT / "vale/description.ini")
         if startup:
-            messages.append(f"STE English: Vale is ready at {executable}. Lint prose automatically after edits.")
-    except (OSError, RuntimeError) as error:
-        feedback(f"Automatic Vale setup did not complete: {error}. Report this limitation.", event)
+            messages.append(f"STE English: Vale is ready at {executable}; Harper is ready at {harper}. Lint prose automatically after edits.")
+            if automatic_enabled():
+                messages.append("TypeSafe Jev review is enabled. Compare revisions with captured originals and review model decisions in context.")
+                if book_settings().get("enabled"):
+                    messages.append("Williams/Bizup book review is enabled. Use the williams-style skill for relevant passages and exact source locations. Editorial advice does not override STE, safety, or intended meaning.")
+    except (OSError, ValueError, RuntimeError, subprocess.TimeoutExpired) as error:
+        feedback(f"Automatic writing setup did not complete: {error}. Report this limitation.", event)
         return 0
     roots = set()
     for path in [Path(payload.get("cwd") or os.getcwd())] if startup else [p.parent for p in paths]:
@@ -110,7 +136,6 @@ def main() -> int:
                 roots.add(repo)
         except (OSError, subprocess.TimeoutExpired):
             pass
-    session = str(payload.get("session_id") or "unknown")
     for repo in sorted(roots):
         prompt = permission_prompt(repo, session)
         if prompt:
@@ -133,7 +158,8 @@ def main() -> int:
         if path.stat().st_size > 2 * 1024 * 1024:
             messages.append(f"{path}: automatic Vale skipped this file because it exceeds 2 MiB.")
             continue
-        command = [sys.executable, str(launcher(strict)), "--profile", profile, "--format", "json"]
+        command = [sys.executable, str(ROOT / "scripts/writing_check.py"), "--vale-launcher", str(launcher(strict)),
+                   "--profile", profile, "--format", "json"]
         config = project_config(path)
         if config:
             command.extend(["--config", str(config)])
@@ -142,31 +168,38 @@ def main() -> int:
         command.append(str(path))
         result = None
         try:
-            result = subprocess.run(command, capture_output=True, text=True, timeout=15, check=False)
+            environment = dict(os.environ, STE_WRITING_SESSION=session)
+            result = subprocess.run(command, capture_output=True, text=True, timeout=45, check=False, env=environment)
             data = json.loads(result.stdout)
             if not isinstance(data, dict) or any(not isinstance(alerts, list) for alerts in data.values()):
                 raise ValueError("Vale returned an error instead of file findings.")
             findings = [alert for alerts in data.values() for alert in alerts]
             if any(not isinstance(alert, dict) for alert in findings):
                 raise ValueError("Vale returned invalid findings.")
-            if result.returncode not in (0, 1):
+            if result.returncode not in (0, 1, 2):
                 raise ValueError(f"Vale exited with code {result.returncode}.")
+            if result.stderr.strip():
+                messages.append(result.stderr.strip()[:1800])
+            if result.returncode == 2:
+                messages.append(f"{path}: writing checks did not all complete. Review the available findings and report this limitation.")
         except (OSError, ValueError, subprocess.TimeoutExpired) as error:
             detail = (result.stderr.strip()[:1000] if result else "") or str(error)
             messages.append(f"{path}: automatic Vale check did not complete. {detail}")
             continue
-        messages.append(f"Vale automatically checked {path}: {len(findings)} findings.")
+        messages.append(f"Writing checks returned {len(findings)} findings for {path}.")
         for finding in findings[:12]:
             messages.append(
                 f"  line {finding.get('Line', '?')}: {finding.get('Check', 'Vale')}: "
                 f"{finding.get('Message', 'Review this finding.')}"
             )
         if len(findings) > 12:
-            messages.append(f"  {len(findings) - 12} additional findings. Run the Vale launcher for the full report.")
+            messages.append(f"  {len(findings) - 12} additional findings. Run scripts/writing_check.py for the full report.")
     messages.append(
         "Review these English style findings before finishing. Fix true findings and report intentional exceptions. "
         "Preserve facts, requirement strength, code, identifiers, URLs, and exact literals. "
         "If a check did not complete, report the limitation. A clean result does not certify STE compliance."
+        " Jev comparison findings may reflect requested factual updates. Check them against the task; preserve authorized additions."
+        " Revise at most twice. Preserve the original when meaning remains uncertain and ask for missing facts."
     )
     feedback("\n".join(messages), event)
     return 0

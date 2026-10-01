@@ -1,8 +1,8 @@
-# STE Writing Cheatsheet
+# STE writing cheatsheet
 
 ## Pick the profile
 
-| If the reader must... | Profile | Sentence limit | Main form |
+| Reader's task | Profile | Sentence limit | Main form |
 |---|---|---:|---|
 | do a task | Procedure | 20 words | Imperative command |
 | understand a system or result | Description | 25 words | Active statement |
@@ -46,7 +46,7 @@
 | Cut | Replace with |
 |---|---|
 | "It is important to note that X" | `X` |
-| "In order to X" | `To X` |
+| `In order to X` | `To X` |
 | "Leverage X to facilitate Y" | Name the actual action |
 | `Robust / seamless / scalable` | Observable behavior or measurement |
 | Preview + list + recap | Keep the list once |

@@ -4,7 +4,7 @@
 
 | Severity | Meaning | Action |
 |---|---|---|
-| High | Meaning, safety, requirement force, or execution can change | Stop or ask before rewriting |
+| High | Safety, meaning, requirement force, or execution can change | Stop or ask before rewriting |
 | Medium | A reader can misunderstand the actor, action, condition, or result | Rewrite before delivery |
 | Low | The text is correct but longer, noisier, or less consistent than needed | Fix when it improves the result |
 | Advisory | A heuristic found a possible issue that needs human judgment | Review in context |

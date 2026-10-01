@@ -1,0 +1,8 @@
+# From Aasim Sani's simplify-writing, commit c4d96746. MIT license.
+extends: existence
+message: "Replace the em dash with a period, comma, colon or parentheses."
+level: warning
+scope: ~code
+nonword: true
+tokens:
+  - '—'

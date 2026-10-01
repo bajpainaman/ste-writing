@@ -1,9 +1,9 @@
-# ASD-STE100 Issue 9 Rule Map
+# ASD-STE100 rule map, issue 9
 
 This is a condensed working map of the 53 rules. Use the official standard for
 exact compliance decisions.
 
-## Section 1: Words
+## Section 1: words
 
 1. **1.1** Use dictionary-approved words, technical nouns, or technical verbs.
 2. **1.2** Use an approved word only as its specified part of speech.
@@ -22,13 +22,13 @@ exact compliance decisions.
 14. **1.14** Use American English spelling unless an official directive says
     otherwise.
 
-## Section 2: Multi-word nouns
+## Section 2: multi-word nouns
 
 1. **2.1** Keep a multi-word noun to no more than three words.
 2. **2.2** If a technical noun has more than three words, write it in full first.
    Then define a short form or use clear hyphenation.
 
-## Section 3: Verbs
+## Section 3: verbs
 
 1. **3.1** Use only dictionary-listed verb forms.
 2. **3.2** Use the infinitive, imperative, simple present, simple past, simple
@@ -39,10 +39,10 @@ exact compliance decisions.
    technical noun.
 6. **3.6** Use active voice. In descriptions, use passive voice only when the
    actor is unknown.
-7. **3.7** Describe an action with an approved verb, not a noun or another part
+7. **3.7** Describe an action with an approved verb rather than a noun or another part
    of speech.
 
-## Section 4: Sentences
+## Section 4: sentences
 
 1. **4.1** Write short, clear sentences.
 2. **4.2** Do not omit necessary words or use contractions to shorten text.
@@ -50,7 +50,7 @@ exact compliance decisions.
 4. **4.4** Use connecting words or phrases for sentences with related topics.
 5. **4.5** Use `a`, `an`, `the`, `this`, or `these` before a noun when needed.
 
-## Section 5: Procedural writing
+## Section 5: procedural writing
 
 1. **5.1** Limit each sentence to 20 words.
 2. **5.2** Put one instruction in each sentence unless actions occur at the same
@@ -60,7 +60,7 @@ exact compliance decisions.
    with a comma.
 5. **5.5** Use notes for information only, never for instructions.
 
-## Section 6: Descriptive writing
+## Section 6: descriptive writing
 
 1. **6.1** Give information gradually.
 2. **6.2** Use key words and key phrases to create a logical structure.
@@ -69,7 +69,7 @@ exact compliance decisions.
 5. **6.5** Keep one topic in each paragraph.
 6. **6.6** Limit each paragraph to six sentences.
 
-## Section 7: Safety instructions
+## Section 7: safety instructions
 
 1. **7.1** Use a word or symbol that identifies the risk level.
 2. **7.2** Start with a clear command or condition.
@@ -78,7 +78,7 @@ exact compliance decisions.
 Use `WARNING` for injury or death. Use `CAUTION` for damage to objects. If both
 risk levels exist, use `WARNING`.
 
-## Section 8: Punctuation and word count
+## Section 8: punctuation and word count
 
 1. **8.1** Use standard English punctuation except the semicolon.
 2. **8.2** Use hyphens to connect words that function together.
@@ -91,7 +91,7 @@ risk levels exist, use `WARNING`.
    quotation, title/label, or proper name as one word.
 7. **8.7** Count a hyphenated word as one word.
 
-## Section 9: Writing practices
+## Section 9: writing practices
 
 1. **9.1** Change the sentence construction when word-for-word replacement is
    not sufficient.
